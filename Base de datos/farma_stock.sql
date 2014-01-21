@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-01-2014 a las 09:44:23
+-- Tiempo de generación: 21-01-2014 a las 11:07:34
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.12
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `id_pedido` int(11) NOT NULL,
   `id_empleado` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `entrega` varchar(2) NOT NULL,
+  `Cantidad` varchar(2) NOT NULL,
   PRIMARY KEY (`id_pedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -82,8 +82,9 @@ CREATE TABLE IF NOT EXISTS `pedido` (
 -- Volcado de datos para la tabla `pedido`
 --
 
-INSERT INTO `pedido` (`id_pedido`, `id_empleado`, `fecha`, `entrega`) VALUES
-(1, 1, '2014-01-21', '');
+INSERT INTO `pedido` (`id_pedido`, `id_empleado`, `fecha`, `Cantidad`) VALUES
+(1, 1, '2014-01-21', '16'),
+(2, 1, '2014-01-22', '24');
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,9 @@ INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `direccion`, `telefono`) VALU
 
 CREATE TABLE IF NOT EXISTS `proveedor_producto` (
   `id_proveedor` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL
+  `id_producto` int(11) NOT NULL,
+  KEY `id_producto` (`id_producto`),
+  KEY `id_proveedor` (`id_proveedor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -167,13 +170,6 @@ CREATE TABLE IF NOT EXISTS `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `venta`
---
-
-INSERT INTO `venta` (`id_emple`, `id_product`, `fecha`, `cantidad`) VALUES
-(1, 5, '2014-01-20', 3);
-
---
 -- Restricciones para tablas volcadas
 --
 
@@ -183,6 +179,13 @@ INSERT INTO `venta` (`id_emple`, `id_product`, `fecha`, `cantidad`) VALUES
 ALTER TABLE `cantidad`
   ADD CONSTRAINT `cantidad_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cantidad_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `proveedor_producto`
+--
+ALTER TABLE `proveedor_producto`
+  ADD CONSTRAINT `proveedor_producto_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`),
+  ADD CONSTRAINT `proveedor_producto_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);
 
 --
 -- Filtros para la tabla `venta`
