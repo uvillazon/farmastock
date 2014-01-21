@@ -131,7 +131,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 /* ~~ El pie de página ~~ */
 .footer {
 	padding: 10px 0;
-	position: fixed;/* esto da a IE6 hasLayout para borrar correctamente */
+	position: absolute;/* esto da a IE6 hasLayout para borrar correctamente */
 	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
 	background-color:#fff; /*fondo blanco*/
 	border:1px solid #CCCCCC; /*border*/
