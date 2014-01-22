@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-01-2014 a las 11:07:34
+-- Tiempo de generación: 22-01-2014 a las 09:17:52
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.12
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cantidad` (
 --
 
 CREATE TABLE IF NOT EXISTS `empleado` (
-  `id_empleado` int(11) NOT NULL,
+  `id_empleado` int(11) NOT NULL AUTO_INCREMENT,
   `dni` int(11) NOT NULL,
   `nombre` varchar(11) NOT NULL,
   `apellidos` varchar(11) NOT NULL,
@@ -53,16 +53,16 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `repetcontraseña` int(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   PRIMARY KEY (`id_empleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
 INSERT INTO `empleado` (`id_empleado`, `dni`, `nombre`, `apellidos`, `direccion`, `telefono`, `nombre_login`, `contrasena`, `repetcontraseña`, `email`) VALUES
-(1, 8888997, 'Antonio', 'Molina Ruiz', 'Segura de L', 655853741, 'toniadmin', '1234', 1234, 'chiripa1992@gmail.co'),
-(2, 8974589, 'Pedro', 'Navarro', 'Sevilla', 658741236, 'pedroadmin', '1234', 1234, 'montygas@gmail.com'),
-(3, 8741259, 'Ramon', 'Moya', 'Sevilla', 698741236, 'ramonadmin', '1234', 1234, 'ramon200490@gmail.co');
+(1, 8888997, 'Antonio', 'Molina Ruiz', 'Segura de L', 655853741, 'toniadmin', '1234', 0, 'chiripa1992@gmail.co'),
+(2, 8741236, 'Pedro', 'Navarro', 'Bollullos', 698741236, 'pedroadmin', '1234', 0, 'montygas@gmail.com'),
+(3, 2147483647, 'Ramon', 'Moya', 'Sevilla', 652314789, 'ramonadmin', '1234', 0, 'ramon200390@gmail.co');
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `id_empleado` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `Cantidad` varchar(2) NOT NULL,
-  PRIMARY KEY (`id_pedido`)
+  PRIMARY KEY (`id_pedido`),
+  KEY `id_empleado` (`id_empleado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -93,11 +94,11 @@ INSERT INTO `pedido` (`id_pedido`, `id_empleado`, `fecha`, `Cantidad`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `producto` (
-  `id_producto` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(11) NOT NULL,
   `stock` int(11) NOT NULL,
   UNIQUE KEY `id_producto` (`id_producto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -120,12 +121,12 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `stock`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `proveedor` (
-  `id_proveedor` int(11) NOT NULL,
+  `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(11) NOT NULL,
   `direccion` varchar(11) NOT NULL,
   `telefono` int(11) NOT NULL,
   PRIMARY KEY (`id_proveedor`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `proveedor`
@@ -150,8 +151,8 @@ INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `direccion`, `telefono`) VALU
 CREATE TABLE IF NOT EXISTS `proveedor_producto` (
   `id_proveedor` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
-  KEY `id_producto` (`id_producto`),
-  KEY `id_proveedor` (`id_proveedor`)
+  KEY `id_proveedor` (`id_proveedor`),
+  KEY `id_producto` (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -161,12 +162,12 @@ CREATE TABLE IF NOT EXISTS `proveedor_producto` (
 --
 
 CREATE TABLE IF NOT EXISTS `venta` (
-  `id_emple` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
+  `id_empleado` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `cantidad` int(4) NOT NULL,
-  UNIQUE KEY `id_emple` (`id_emple`,`id_product`),
-  KEY `id_product` (`id_product`)
+  UNIQUE KEY `id_emple` (`id_empleado`,`id_producto`),
+  KEY `id_product` (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,22 +178,28 @@ CREATE TABLE IF NOT EXISTS `venta` (
 -- Filtros para la tabla `cantidad`
 --
 ALTER TABLE `cantidad`
-  ADD CONSTRAINT `cantidad_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cantidad_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cantidad_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cantidad_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id_empleado`);
 
 --
 -- Filtros para la tabla `proveedor_producto`
 --
 ALTER TABLE `proveedor_producto`
-  ADD CONSTRAINT `proveedor_producto_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`),
-  ADD CONSTRAINT `proveedor_producto_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);
+  ADD CONSTRAINT `proveedor_producto_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `proveedor_producto_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `venta`
 --
 ALTER TABLE `venta`
-  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_emple`) REFERENCES `empleado` (`id_empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `venta_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id_empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
