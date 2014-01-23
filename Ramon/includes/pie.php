@@ -1,2 +1,3 @@
-<p>Farmastock </p>
-<p>Aplicación Web Farmaceutica</p>
+<p> Farmastock &copy; </p>
+<p> 2014 &reg; <p>
+

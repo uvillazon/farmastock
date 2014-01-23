@@ -25,40 +25,10 @@
   </div>
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>Region editable ds</p>
-  <p>sdsd</p>
-  <p>sdsd</p>
-  <p>sdsd</p>
-  <p>sds</p>
-  <p>sdsd</p>
-  <p>sddf</p>
-  <p>dfd</p>
-  <p>fd</p>
-  <p>fdd</p>
-  <p>fdf</p>
-  <p>df</p>
-  <p>df</p>
-  <p>df</p>
-  <p>df</p>
-  <p>d</p>
-  <p>fd</p>
-  <p>&nbsp;</p>
-  <p>fsf</p>
-  <p>fsd</p>
-  <p>freer</p>
-  <p>erer</p>
-  <p>er</p>
-  <p>e</p>
-  <p>re</p>
-  <p>r</p>
-  <p>re</p>
-  <p>e</p>
-  <p>rere</p>
-  <p>re</p>
-  <p>r</p>
-  <p>er</p>
-  <p>e</p>
-  <p>r</p>
+  <h1>Información</h1>
+  <p>Farmastock es una aplicación web creada para la gestión y administración de los almacenes de las farmacias. Con esta aplicación podemos estar al tanto de las unidades de los productos que disponemos así como de sus ventas.</p> 
+ <br /> 
+<p>Nuestra aplicaión tambien podría aplicarse a otro tipo de comercio haciendo unos simples ajustes. </p> 
   <p>&nbsp;</p>
   <p>&nbsp;</p>
   <!-- InstanceEndEditable -->
