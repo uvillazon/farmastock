@@ -69,7 +69,7 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 4) Si prefiere que la navegación esté a la derecha en lugar de a la izquierda, simplemente haga que estas columnas floten en dirección opuesta (todas a la derecha en lugar de todas a la izquierda) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
 
 */
-.sidebar1 {
+.menuizqu {
 	float: left;
 	background-color:#fff; /*fondo blanco*/
 	border:1px solid #bbbabc; /*border*/
