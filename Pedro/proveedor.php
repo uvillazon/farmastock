@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- TemplateBeginEditable name="doctitle" -->
+<!-- InstanceBeginEditable name="doctitle" -->
 <title>Farmastock | Aplicación web stock farmacia</title>
-<!-- TemplateEndEditable -->
-<!-- TemplateBeginEditable name="head" -->
-<!-- TemplateEndEditable -->
-<link href="../css/principal.css" rel="stylesheet" type="text/css" />
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
 </head>
@@ -20,17 +20,22 @@
   <div class="header">
   <?php include("includes/cabecera.php"); ?>
   </div>
-  <div class="menuizqu"><!-- TemplateBeginEditable name="menu" -->dfd
+  <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
       <?php include("includes/menuizquierda.php"); ?>
-  <!-- TemplateEndEditable --></div>
+  <!-- InstanceEndEditable --></div>
   
   
   <div class="content">
-  <!-- TemplateBeginEditable name="Contenido" -->Region editable <!-- TemplateEndEditable -->
+  <!-- InstanceBeginEditable name="Contenido" -->
+  <p>esto es proveedor</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
     <?php include("includes/pie.php");?>
     <!-- end .footer --></div>
   <!-- end .container --></div>
 </body>
-</html>
+<!-- InstanceEnd --></html>
