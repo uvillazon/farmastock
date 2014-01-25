@@ -77,6 +77,7 @@ if (isset($_POST['textfield'])) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
+
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -107,6 +108,7 @@ inicio_sesion {
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
+
 </head>
 
 <body>
@@ -115,7 +117,15 @@ inicio_sesion {
 <div class="container">
   <div class="header">
   <?php include("includes/cabecera.php"); ?>
-  </div>
+     
+     </div>
+     
+       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+           
+       <!-- InstanceEndEditable --></div>
+  
+  
+  
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
     <p>Inicio de Sessión</p>
   <img src="images/login.jpg" width="121" height="161" alt="login" /> <!-- InstanceEndEditable --></div>
