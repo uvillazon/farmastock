@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
+<title>Farmastock | Aplicación web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -38,66 +38,7 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
- <div class="tabla_productos">
-   <p>Productos que se encuentran en el almacen:</p>
-   <p>&nbsp;</p>
-   <p>&nbsp;</p>
-  
-<?php
-// Conectando, seleccionando la base de datos
-$link = mysql_connect('127.0.0.1', 'root', '')
-    or die('No se pudo conectar: ' . mysql_error());
-echo '';
-mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-
-// Realizar una consulta MySQL
-$query = 'SELECT * FROM producto';
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-
-// Imprimir los resultados en HTML
-
-
-echo "<table border=1 >\n";
-echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Modificar\" /> </a> </td></tr>";
-
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-   
-    echo "\t<tr>\n";
-	
-    foreach ($line as $col_value) {
-       
-	    echo "\t\t<td>$col_value</td> \n";
-		
-    }
-    echo "<td> <a href=\"modificar_producto.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
-	echo "<td> <a href=\"borrar_producto.php\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
-	echo "";
-	
-	echo "\t</tr>\n";
-}
-echo "</table>\n";
-
-
-// Liberar resultados
-mysql_free_result($result);
-
-// Cerrar la conexión
-mysql_close($link);
-?>
-</div>
- 
- 
-
-
-
-
-  
-
-
-
-
-
-<p>&nbsp;</p>
+  <p>esto es añadir producto</p>
 <p>&nbsp;</p>
   <p>&nbsp;</p>
   <!-- InstanceEndEditable -->
