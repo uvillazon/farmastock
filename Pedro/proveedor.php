@@ -38,10 +38,40 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es proveedor</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <div class="tabla_productos">
+<p>Datos de nuestros Proveedores:</p>
+   <p>&nbsp;</p>
+  
+<?php
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+// Realizar una consulta MySQL
+$query = 'SELECT * FROM proveedor';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+// Imprimir los resultados en HTML
+echo "<table border=1>\n";
+echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Teléfono</td></tr>";
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+    }
+    echo "\t</tr>\n";
+}
+echo "</table>\n";
+
+// Liberar resultados
+mysql_free_result($result);
+
+// Cerrar la conexión
+mysql_close($link);
+?>
+</div>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

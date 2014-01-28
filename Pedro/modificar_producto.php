@@ -38,7 +38,7 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es venta</p>
+  <p>esto es modificar producto</p>
 <p>&nbsp;</p>
   <p>&nbsp;</p>
   <!-- InstanceEndEditable -->
