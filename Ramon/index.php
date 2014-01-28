@@ -74,14 +74,15 @@ if (isset($_POST['textfield'])) {
   }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
 
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | AplicaciÃ³n web stock farmacia</title>
+<title>Farmastock | Aplicación web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <style type="text/css">
@@ -127,7 +128,7 @@ inicio_sesion {
   
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
-    <p>Inicio de SessiÃ³n</p>
+    <p>Inicio de Sessión</p>
   <img src="images/login.jpg" width="121" height="161" alt="login" /> <!-- InstanceEndEditable --></div>
   
   
@@ -146,7 +147,7 @@ inicio_sesion {
           </p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
-          <p>ContraseÃ±a: </p>
+          <p>Contraseña: </p>
           <p>
             <label for="textfield8"></label>
             <input type="password" name="textfield2" id="textfield8" />
