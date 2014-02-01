@@ -41,13 +41,10 @@ if (!isset($_SESSION)) {
   session_start();
   
   
+  
 }
-
-
-
-
-
-$loginFormAction = $_SERVER['PHP_SELF'];
+ 
+   $loginFormAction = $_SERVER['PHP_SELF'];
 if (isset($_GET['accesscheck'])) {
   $_SESSION['PrevUrl'] = $_GET['accesscheck'];
 }
@@ -83,6 +80,7 @@ if (isset($_POST['campo_usuario'])) {
     header("Location: ". $MM_redirectLoginFailed );
   }
 }
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
@@ -138,6 +136,8 @@ inicio_sesion {
   
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
+   
+    
     <p>Inicio de Sessión</p>
   <img src="images/login.jpg" width="121" height="161" alt="login" /> <!-- InstanceEndEditable --></div>
   

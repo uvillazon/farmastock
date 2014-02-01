@@ -1,5 +1,5 @@
 <?php
-# FileName="Connection_php_mysql.html"
+# FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
 $hostname_bd_farmastock = "localhost";
