@@ -1,4 +1,13 @@
 <?php require_once('Connections/bd_farmastock.php'); ?>
+
+<?php
+
+
+echo 'Bienvenido a la Farmastock';
+
+?>
+
+
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -35,15 +44,21 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 // *** Validate request to login to this site.
 if (!isset($_SESSION)) {
   session_start();
+  
+  
 }
+
+
+
+
 
 $loginFormAction = $_SERVER['PHP_SELF'];
 if (isset($_GET['accesscheck'])) {
   $_SESSION['PrevUrl'] = $_GET['accesscheck'];
 }
 
-if (isset($_POST['textfield'])) {
-  $loginUsername=$_POST['textfield'];
+if (isset($_POST['campo_usuario'])) {
+  $loginUsername=$_POST['campo_usuario'];
   $password=$_POST['textfield2'];
   $MM_fldUserAuthorization = "";
   $MM_redirectLoginSuccess = "inicio.php";
@@ -51,7 +66,7 @@ if (isset($_POST['textfield'])) {
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_bd_farmastock, $bd_farmastock);
   
-  $LoginRS__query=sprintf("SELECT nombre_login, contrasena FROM empleado WHERE nombre_login=%s AND contrasena=%s",
+  $LoginRS__query=sprintf("SELECT nombre_login, contrasena FROM empleado WHERE nombre_login=%s AND contrasena=password (%s)",
     GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $bd_farmastock) or die(mysql_error());
@@ -61,7 +76,7 @@ if (isset($_POST['textfield'])) {
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
     //declare two session variables and assign them
-    $_SESSION['MM_Username'] = $loginUsername;
+    $_SESSION['login_usuario'] = $loginUsername;
     $_SESSION['MM_UserGroup'] = $loginStrGroup;	      
 
     if (isset($_SESSION['PrevUrl']) && false) {
@@ -143,7 +158,7 @@ inicio_sesion {
         <form id="form1" name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
           <p>
             <label for="textfield6"></label>
-            <input type="text" name="textfield" id="textfield6" />
+            <input type="text" name="campo_usuario" id="textfield6" />
           </p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
