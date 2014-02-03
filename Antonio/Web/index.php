@@ -112,6 +112,14 @@ inicio_sesion {
 	text-align: center;
 	font-weight: bold;
 }
+input:focus { //estilos al hacer focus
+  border: 2px solid #000;
+  background: #A9F5A9; 
+}
+    enviar{
+      background-color:#A9F5A9;
+
+    }
 </style>
 <!-- InstanceEndEditable -->
 <link href="css/principal.css" rel="stylesheet" type="text/css" />

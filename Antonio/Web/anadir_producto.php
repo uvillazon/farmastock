@@ -1,3 +1,18 @@
+<?php
+// page2.php
+
+session_start();
+
+
+echo 'Usuario: ';
+
+echo  $_SESSION['login_usuario']; // green
+/*echo $_SESSION['animal'];   // cat
+echo date('Y m d H:i:s', $_SESSION['time']);*/
+
+if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
+header('Location: index.php');}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -39,26 +54,21 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <br><br>
-<form>
+<form id="form" name="form1" method="post"> 
   <fieldset>
   <legend>Registrar nuevo producto</legend>
  
   <div>
-    <label for="nombre">ID:</label>
-    <input type="text" id="ID" size="1" />
-  </div>
- 
-  <div>
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" size="35" />
+    <input type="text" name="nombre" id="nombre" size="35" />
   </div>
       <div>
     <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" size="35" />
+    <input type="text" name="stock" id="stock" size="35" />
   </div>
 <input id="enviar" type="submit" value="Dar de alta"/></form>
 </fieldset>
-
+    
 </body>
 <style type="text/css"> 
     form{
