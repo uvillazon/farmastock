@@ -38,7 +38,13 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  
+  <div class="iconos1">
+   <img src="images/bayer.jpeg" width="100" height="100" alt="Bayer" />
+   <span class="iconos2"><img src="images/durex.jpeg" width="100" height="100" alt="Durex" /></span><img class="iconos2" src="images/canifarma.jpeg" width="100" height="100" alt="Canifarma" />
+   <img class="iconos2" src="images/europharm.jpeg" width="100" height="100" alt="Europharm" /></div>
+   
+  <div class="iconos2"></div>
+   
   <div class="tabla_productos">
   
 <?php
@@ -82,9 +88,6 @@ mysql_close($link);
 ?>
 </div>
   
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
