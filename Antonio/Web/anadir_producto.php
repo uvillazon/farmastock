@@ -54,23 +54,57 @@ header('Location: index.php');}
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <br><br>
-<form id="form" name="form1" method="post"> 
-  <fieldset>
-  <legend>Registrar nuevo producto</legend>
+          <?php 
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $nombre=$_POST['nombre'];
+              $stock=$_POST['stock'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+//var_dump($nombre);
+//var_dump($stock);
+
+// Realizar una consulta MySQL
+$query = 'INSERT INTO `producto`(`nombre`, `stock`) VALUES ("$nombre","$stock")';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+echo "<fieldset>";
+echo "Producto añadido";
+echo "</fieldset>";
+
+              
+          } else {
+            echo "<form id=form name=form1 method=post action=anadir_producto.php>";
+  echo "<fieldset>";
+  echo "<legend>Registrar nuevo producto</legend>";
  
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" id="nombre" size="35" />
-  </div>
-      <div>
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" name="stock" id="stock" size="35" />
-  </div>
-<input id="enviar" type="submit" value="Dar de alta"/></form>
-</fieldset>
+  echo "<div>";
+   echo "<label for=nombre>Nombre:</label>";
+   echo "<input type=text name=nombre id=nombre size=35 />";
+  echo "</div>";
+      echo "<div>";
+    echo "<label for=cantidad>Cantidad:</label>";
+   echo "<input type=text name=stock id=stock size=35 />";
+  echo "</div>";
+echo "<input id=enviar type=submit value='Dar de alta'/>";
+echo "</fieldset>";
+  echo "</form>";   
+          }
+          ?>
+          
+          
+          
+          
+          
     
 </body>
 <style type="text/css"> 
+    fieldset{
+        
+    margin-top: -50px;
+    }
     form{
         margin-top: -50px; 
     }
