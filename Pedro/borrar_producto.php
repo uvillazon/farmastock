@@ -39,6 +39,8 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <p>esto es borrar producto</p>
+  
+  
 <p>&nbsp;</p>
   <p>&nbsp;</p>
   <!-- InstanceEndEditable -->
