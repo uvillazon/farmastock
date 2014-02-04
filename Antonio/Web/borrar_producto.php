@@ -38,25 +38,38 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <form>
-  <fieldset>
-  <legend>Dar de baja un producto</legend>
- 
-  <div>
-    <label for="nombre">ID:</label>
-    <input type="text" id="ID" size="1" />
-  </div>
- 
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" size="35" />
-  </div>
-      <div>
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" size="35" />
-  </div>
-<input id="enviar" type="submit" value="Dar de baja"/></form>
-</fieldset>
+  <?php 
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $nombre=$_POST['id'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+//var_dump($nombre);
+//var_dump($stock);
+
+// Realizar una consulta MySQL
+$query = "DELETE FROM `farma_stock`.`producto` WHERE `producto`.'$id_producto')";
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+echo "<fieldset>";
+echo "Producto añadido";
+echo "</fieldset>";
+          } else{
+              echo "<form id=form name=form1 method=post action=anadir_producto.php>";
+  echo "<fieldset>";
+  echo "<legend>Borrar un producto</legend>";
+ echo "<div>";
+   echo "<label for=id>ID:</label>";
+   echo "<input type=text name=id_producto id=id_producto size=35 />";
+  echo "</div>";
+  
+echo "<input id=enviar type=submit value='Dar de alta'/>";
+echo "</fieldset>";
+  echo "</form>";   
+          }
+          ?>
 
 </body>
 <style type="text/css"> 
