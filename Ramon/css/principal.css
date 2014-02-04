@@ -190,12 +190,16 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 	}
 
 .tabla_productos{
-	margin: 10px 0px 10px 200px;
+	margin: 50px 0px 10px 200px;
 		
 }
 
-.icono_añadir{
-	
-	
-	
+.iconos{
+		margin: 0px 0px 0px 0px;
 	}
+	
+.iconos2{
+		margin: 0px 0px 0px 120px;
+	}
+	
+
