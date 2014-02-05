@@ -1,18 +1,6 @@
-<?php
-// page2.php
-
-session_start();
+<?php include("includes/sesiones.php"); ?>
 
 
-echo 'Usuario: ';
-
-echo  $_SESSION['login_usuario']; // green
-/*echo $_SESSION['animal'];   // cat
-echo date('Y m d H:i:s', $_SESSION['time']);*/
-
-if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
-header('Location: index.php');}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -54,6 +42,7 @@ header('Location: index.php');}
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <br><br>
+         
           <?php 
           require_once('Connections/bd_farmastock.php');
           if (!empty($_POST)){
@@ -74,7 +63,7 @@ echo "<fieldset>";
 echo "Producto añadido";
 echo "</fieldset>";
           } else{
-              echo "<form id=form name=form1 method=post action=anadir_producto.php>";
+              echo "<form id=form name=form1 method=post action=anadir_producto.php >";
   echo "<fieldset>";
   echo "<legend>Registrar nuevo producto</legend>";
  
@@ -89,10 +78,16 @@ echo "</fieldset>";
 echo "<input id=enviar type=submit value='Dar de alta'/>";
 echo "</fieldset>";
   echo "</form>";   
-          }
+        
+	
+
+		 
+		 
+		 
+		  }
           ?>
           
-          
+     
           
           
           
