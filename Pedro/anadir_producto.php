@@ -67,16 +67,14 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 //var_dump($stock);
 
 // Realizar una consulta MySQL
-$query = 'INSERT INTO `producto`(`nombre`, `stock`) VALUES ("$nombre","$stock")';
+$query = "INSERT INTO `producto`(`nombre`, `stock`) VALUES ('$nombre','$stock')";
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
 echo "Producto añadido";
 echo "</fieldset>";
-
-              
-          } else {
-            echo "<form id=form name=form1 method=post action=anadir_producto.php>";
+          } else{
+              echo "<form id=form name=form1 method=post action=anadir_producto.php>";
   echo "<fieldset>";
   echo "<legend>Registrar nuevo producto</legend>";
  
