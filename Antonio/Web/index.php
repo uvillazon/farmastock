@@ -1,8 +1,3 @@
-<?php require_once('Connections/bd_farmastock.php'); ?>
-
-
-
-
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -90,7 +85,7 @@ if (isset($_POST['campo_usuario'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <style type="text/css">
@@ -146,7 +141,7 @@ input:focus { //estilos al hacer focus
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
    
     
-    <p>Inicio de Sessión</p>
+    <p>Inicio de Sessiï¿½n</p>
   <img src="images/login.jpg" width="121" height="161" alt="login" /> <!-- InstanceEndEditable --></div>
   
   
@@ -165,7 +160,7 @@ input:focus { //estilos al hacer focus
           </p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
-          <p>Contraseña: </p>
+          <p>Contraseï¿½a: </p>
           <p>
             <label for="textfield8"></label>
             <input type="password" name="textfield2" id="textfield8" />
