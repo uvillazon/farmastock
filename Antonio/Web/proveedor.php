@@ -1,18 +1,5 @@
-<?php
-// page2.php
+<?php include '/includes/sesiones.php';?>
 
-session_start();
-
-
-echo 'Usuario: ';
-
-echo  $_SESSION['login_usuario']; // green
-/*echo $_SESSION['animal'];   // cat
-echo date('Y m d H:i:s', $_SESSION['time']);*/
-
-if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
-header('Location: index.php');}
-?>
 
 
 
@@ -25,7 +12,7 @@ header('Location: index.php');}
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -75,7 +62,7 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 // Imprimir los resultados en HTML
 echo "<table border=1>\n";
 
-echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Teléfono</td><td>Email</td><td><a href=\"anadir_proveedor.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a></td></tr>";
+echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Telï¿½fono</td><td>Email</td><td><a href=\"anadir_proveedor.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a></td></tr>";
 
 
 
@@ -93,7 +80,7 @@ echo "</table>\n";
 // Liberar resultados
 mysql_free_result($result);
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 ?>
 </div>

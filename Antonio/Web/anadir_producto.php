@@ -1,18 +1,5 @@
-<?php
-// page2.php
+<?php include '/includes/sesiones.php';?>
 
-session_start();
-
-
-echo 'Usuario: ';
-
-echo  $_SESSION['login_usuario']; // green
-/*echo $_SESSION['animal'];   // cat
-echo date('Y m d H:i:s', $_SESSION['time']);*/
-
-if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
-header('Location: index.php');}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -21,7 +8,7 @@ header('Location: index.php');}
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -71,7 +58,8 @@ $query = "INSERT INTO `producto`(`nombre`, `stock`) VALUES ('$nombre','$stock')"
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
-echo "Producto añadido";
+echo "Producto aï¿½adido";
+header ("Location: almacen.php");
 echo "</fieldset>";
           } else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php>";
