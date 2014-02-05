@@ -61,6 +61,9 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
 echo "Producto añadido";
+echo "<br>";
+echo "<br>";
+echo "<a href=\"almacen.php\">Volver Almacén</a>";
 echo "</fieldset>";
           } else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php >";
