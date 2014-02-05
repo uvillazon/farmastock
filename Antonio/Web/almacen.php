@@ -62,7 +62,7 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 
 echo "<table border=1 >\n";
-echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
+echo "<tr><td>Id Productos</td><td>Nombre</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
 
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    
@@ -89,18 +89,6 @@ mysql_free_result($result);
 mysql_close($link);
 ?>
 </div>
- 
- 
-
-
-
-
-  
-
-
-
-
-
 <p>&nbsp;</p>
 <p>&nbsp;</p>
   <p>&nbsp;</p>

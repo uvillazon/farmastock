@@ -61,7 +61,7 @@ echo "<fieldset>";
 echo "Producto a�adido";
 header ("Location: almacen.php");
 echo "</fieldset>";
-          } else{
+          }else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php>";
   echo "<fieldset>";
   echo "<legend>Registrar nuevo producto</legend>";
@@ -78,13 +78,7 @@ echo "<input id=enviar type=submit value='Dar de alta'/>";
 echo "</fieldset>";
   echo "</form>";   
           }
-          ?>
-          
-          
-          
-          
-          
-    
+          ?>    
 </body>
 <style type="text/css"> 
     fieldset{

@@ -1,9 +1,7 @@
 <?php include '/includes/sesiones.php';?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
-
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,51 +12,64 @@
 <!-- InstanceEndEditable -->
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
-
-
 </head>
-
 <body>
 <?php include("includes/afterbody.php"); ?>
-
 <div class="container">
   <div class="header">
   <?php include("includes/cabecera.php"); ?>
-     
      </div>
-     
        <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            <?php include("includes/logo_logout.php"); ?>
        <!-- InstanceEndEditable --></div>
-  
-  
-  
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
       <?php include("includes/menuizquierda.php"); ?>
   <!-- InstanceEndEditable --></div>
-  
-  
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-<form>
-  <fieldset>
-  <legend>Modificar producto</legend>
- 
-  <div>
-    <label for="nombre">ID:</label>
-    <input type="text" id="ID" size="1" />
-  </div>
- 
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" size="35" />
-  </div>
-      <div>
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" size="35" />
-  </div>
-<input id="enviar" type="submit" value="Modificar"/></form>
-</fieldset>
+<?php 
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $id=$_POST['id_producto'];
+              $nombre=$_POST['nombre'];
+              $stock=$_POST['stock'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+//var_dump($nombre);
+//var_dump($stock);
+
+// Realizar una consulta MySQL
+$query = "UPDATE `producto` SET `id_producto`=('$id_producto')`nombre`=('$nombre'),`stock`=('$stock') WHERE id_producto=('$id_producto')`nombre`=('$nombre'),`stock`=('$stock')";
+echo $query;
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+echo "<fieldset>";
+echo "Producto a�adido";
+header ("Location: almacen.php");
+echo "</fieldset>";
+          }else{
+              echo "<form id=form name=form1 method=post action=anadir_producto.php>";
+  echo "<fieldset>";
+  echo "<legend>Modificar un producto</legend>";
+ echo "<div>";
+   echo "<label for=id>ID:</label>";
+   echo "<input type=text name=id_producto id=id_producto size=35 />";
+  echo "</div>";
+  echo "<div>";
+   echo "<label for=nombre>Nombre:</label>";
+   echo "<input type=text name=nombre id=nombre size=35 />";
+  echo "</div>";
+      echo "<div>";
+    echo "<label for=cantidad>Cantidad:</label>";
+   echo "<input type=text name=stock id=stock size=35 />";
+  echo "</div>";
+echo "<input id=enviar type=submit value='Dar de alta'/>";
+echo "</fieldset>";
+  echo "</form>";   
+          }
+          ?>
 
 </body>
 <style type="text/css"> 
