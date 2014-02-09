@@ -1,5 +1,4 @@
-ï»¿<?php include ('/includes/sesiones.php');?>
-
+<?php include("includes/sesiones.php"); ?>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -62,33 +61,63 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 
 echo "<table border=1 >\n";
-echo "<tr><td>Id Productos</td><td>Nombre</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
+echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
 
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    
     echo "\t<tr>\n";
-	
+	$id= $line["id_producto"];
     foreach ($line as $col_value) {
        
 	    echo "\t\t<td>$col_value</td> \n";
 		
     }
     echo "<td> <a href=\"modificar_producto.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
-	echo "<td> <a href=\"borrar_producto.php\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+	
+	echo "<td> <a href=\"borrar_producto.php?id_producto=$id\"  onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
 	echo "";
 	
 	echo "\t</tr>\n";
+	 
+	
 }
+
 echo "</table>\n";
 
 
 // Liberar resultados
 mysql_free_result($result);
 
-// Cerrar la conexiï¿½n
+// Cerrar la conexión
 mysql_close($link);
 ?>
+
+<!-- SCRIPT DE CONFIRMACION ELIMINACION DE PRODUCTOS,(va asociado al onclick del href borrar_producto de arriba(onclick=\"return confirmar() )  ) -->
+<script language="JavaScript"> 
+function confirmar(url){ 
+if (!confirm("¿Está seguro de que desea eliminar el Producto ?")) { 
+return false; 
+} 
+else { 
+document.location= url; 
+return true; 
+} 
+} 
+</script> 
+
 </div>
+ 
+ 
+
+
+
+
+  
+
+
+
+
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
   <p>&nbsp;</p>
