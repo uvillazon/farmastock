@@ -1,5 +1,4 @@
-<?php include '/includes/sesiones.php';?>
-
+<?php include("includes/sesiones.php"); ?>
 
 
 
@@ -11,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
+<title>Farmastock | Aplicación web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -43,7 +42,7 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es aï¿½adir proveedor</p>
+  <p>esto es añadir proveedor</p>
 <p>&nbsp;</p>
   <p>&nbsp;</p>
   <!-- InstanceEndEditable -->
