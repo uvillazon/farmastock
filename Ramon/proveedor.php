@@ -1,3 +1,5 @@
+<?php include("includes/sesiones.php"); ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -38,10 +40,10 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <div class="iconos1">
+  <div class="iconos2">
    <img src="images/bayer.jpeg" width="100" height="100" alt="Bayer" />
-   <span class="iconos2"><img src="images/durex.jpeg" width="100" height="100" alt="Durex" /></span><img class="iconos2" src="images/canifarma.jpeg" width="100" height="100" alt="Canifarma" />
-   <img class="iconos2" src="images/europharm.jpeg" width="100" height="100" alt="Europharm" /></div>
+   <span class="iconos2"><img src="images/durex.jpeg" width="100" height="100" alt="Durex" /></span><img class="iconos2" src="images/Europharm.jpeg" width="100" height="100" alt="Europharm" />
+   <img class="iconos2" src="images/canifarma.jpeg" width="100" height="100" alt="canifarma" /></div>
    
   <div class="iconos2"></div>
    
@@ -70,9 +72,11 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
     foreach ($line as $col_value) {
         echo "\t\t<td>$col_value</td>\n";
     }
-	 echo "<td> <a href=\"modificar_proveedor.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
+	 
+	 echo "<td> <a href=\"modificar_proveedor.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";  
 	 echo "<td> <a href=\"borrar_proveedor.php\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
     echo "\t</tr>\n";
+	
 }
 echo "</table>\n";
 
