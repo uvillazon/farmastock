@@ -57,7 +57,7 @@ $query = "UPDATE `producto` SET `id_producto`=['$valor'],`nombre`=[nombre],`stoc
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
-echo "Producto a�adido";
+echo "Producto añadido";
 header ("Location: almacen.php");
 echo "</fieldset>";
           }else{
@@ -68,6 +68,7 @@ echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
               $query = "SELECT * FROM producto WHERE id_producto='$valor'";
               $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+            
               echo "<form id=form name=form1 method=post action=anadir_producto.php?id=11>";
   echo "<fieldset>";
   echo "<legend>Modificar producto</legend>";
