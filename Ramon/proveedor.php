@@ -59,26 +59,22 @@ $query = 'SELECT * FROM proveedor';
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 // Imprimir los resultados en HTML
+echo "<table border=1>\n";
+
+echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Teléfono</td><td>Email</td><td><a href=\"anadir_proveedor.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a></td></tr>";
 
 
-echo "<table border=1 >\n";
-echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Teléfono</td></tr>";
 
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-   
     echo "\t<tr>\n";
-	
     foreach ($line as $col_value) {
-       
-	    echo "\t\t<td>$col_value</td> \n";
-		
+        echo "\t\t<td>$col_value</td>\n";
     }
-   
-	
-	echo "\t</tr>\n";
+	 echo "<td> <a href=\"modificar_proveedor.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
+	 echo "<td> <a href=\"borrar_proveedor.php\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+    echo "\t</tr>\n";
 }
 echo "</table>\n";
-
 
 // Liberar resultados
 mysql_free_result($result);
