@@ -1,3 +1,6 @@
+<?php include("includes/sesiones.php"); ?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -38,47 +41,74 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-<form>
-  <fieldset>
-  <legend>Modificar producto</legend>
- 
-  <div>
-    <label for="nombre">ID:</label>
-    <input type="text" id="ID" size="1" />
-  </div>
- 
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" size="35" />
-  </div>
-      <div>
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" size="35" />
-  </div>
-<input id="enviar" type="submit" value="Modificar"/></form>
-</fieldset>
+  <?php 
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $nombre=$_POST['nombre'];
+              $stock=$_POST['stock'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+//var_dump($nombre);
+//var_dump($stock);
 
-</body>
+// Realizar una consulta MySQL
+$query = "INSERT INTO `producto`(`nombre`, `stock`) VALUES ('$nombre','$stock')";
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+echo "<fieldset>";
+echo "Producto añadido";
+echo "<br>";
+echo "<br>";
+echo "<a href=\"almacen.php\">Volver Almacén</a>";
+echo "</fieldset>";
+          } else{
+              echo "<form id=form name=form1 method=post action=anadir_producto.php >";
+  echo "<fieldset>";
+  echo "<legend>Registrar nuevo producto</legend>";
+ 
+  echo "<div>";
+   echo "<label for=nombre>Nombre:</label>";
+   echo "<input type=text name=nombre id=nombre size=35 />";
+  echo "</div>";
+      echo "<div>";
+    echo "<label for=cantidad>Cantidad:</label>";
+   echo "<input type=text name=stock id=stock size=35 />";
+  echo "</div>";
+echo "<input id=enviar type=submit value='Modificar'/>";
+echo "</fieldset>";
+  echo "</form>";   
+        
+		}
+          ?>
+          
+          </body>
 <style type="text/css"> 
-    form{
-        margin-top: -16px;
+    fieldset{
+        
+    margin-top: 50px;
     }
-    div {
-    margin: .4em 0;
+    form{
+        margin-top: -50px; 
+    }
+ div {
+    margin: .4em 0; //margen para que no esten pegados.
 }
 div label {
-  width: 10%;
+  width: 10%; 
   float: left;
 }
-    input:focus {
+    input:focus { //estilos al hacer focus
   border: 2px solid #000;
-  background: #A9F5A9;
+  background: #A9F5A9; 
 }
     enviar{
       background-color:#A9F5A9;
+
     }
-</style><p>&nbsp;</p>
-  <p>&nbsp;</p>
+</style>
+
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
