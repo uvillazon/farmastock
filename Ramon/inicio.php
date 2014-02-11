@@ -1,13 +1,8 @@
-<?php
-// pagina2.php
 
-session_start();
+<?php include("includes/sesiones.php"); ?>
 
-echo 'Bienvenido a la página Farmastock<br />';
 
-echo $_SESSION['login_usuario'];  
 
-?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
@@ -49,11 +44,17 @@ echo $_SESSION['login_usuario'];
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
+ 
+  
   <h3><p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <p>Farmastock es una aplicación dedicada al sector de la farmacia para facilitar la labor diaria al farmaceutico, su función principal es la de controlar el stock del almacen dando así un control exhaustivo de los productos.</p>
+    <p>Farmastock es una aplicación dedicada al sector de la farmacia para facilitar la labor diaria al farmaceutico, su función principal es la de controlar el stock del almacén dando así un control exhaustivo de los productos.</p>
+    <p>&nbsp;</p>
+    <p>- Podemos ver el stock del almacen actualizado.</p>
+    <p>- Los datos de los proveedores que nos suministran los productos.</p>
+    <p>- Las ventas obtenidas diarias, semanales y mensuales.</p>
   </h3>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

@@ -1,19 +1,4 @@
-<?php
-// page2.php
-
-session_start();
-
-
-echo 'Usuario: ';
-
-echo  $_SESSION['login_usuario']; // green
-/*echo $_SESSION['animal'];   // cat
-echo date('Y m d H:i:s', $_SESSION['time']);*/
-
-if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
-header('Location: index.php');}
-?>
-
+<?php include("includes/sesiones.php"); ?>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -81,18 +66,22 @@ echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td> <a href=
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    
     echo "\t<tr>\n";
-	
+	$id= $line["id_producto"];
     foreach ($line as $col_value) {
        
 	    echo "\t\t<td>$col_value</td> \n";
 		
     }
     echo "<td> <a href=\"modificar_producto.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
-	echo "<td> <a href=\"borrar_producto.php\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+	
+	echo "<td> <a href=\"borrar_producto.php?id_producto=$id\"  onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
 	echo "";
 	
 	echo "\t</tr>\n";
+	 
+	
 }
+
 echo "</table>\n";
 
 
@@ -102,6 +91,20 @@ mysql_free_result($result);
 // Cerrar la conexión
 mysql_close($link);
 ?>
+
+<!-- SCRIPT DE CONFIRMACION ELIMINACION DE PRODUCTOS,(va asociado al onclick del href borrar_producto de arriba(onclick=\"return confirmar() )  ) -->
+<script language="JavaScript"> 
+function confirmar(url){ 
+if (!confirm("¿Está seguro de que desea eliminar el Producto ?")) { 
+return false; 
+} 
+else { 
+document.location= url; 
+return true; 
+} 
+} 
+</script> 
+
 </div>
  
  

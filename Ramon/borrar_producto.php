@@ -1,3 +1,7 @@
+<?php include("includes/sesiones.php"); ?>
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -38,48 +42,34 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <form>
-  <fieldset>
-  <legend>Dar de baja un producto</legend>
- 
-  <div>
-    <label for="nombre">ID:</label>
-    <input type="text" id="ID" size="1" />
-  </div>
- 
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" size="35" />
-  </div>
-      <div>
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" size="35" />
-  </div>
-<input id="enviar" type="submit" value="Dar de baja"/></form>
-</fieldset>
+ <?php 
 
-</body>
-<style type="text/css"> 
- form{
-        margin-top: -16px; 
-    }
-    div {
-    margin: .4em 0;
-}
-div label {
-  width: 10%;
-  float: left;
-}
-    input:focus {
-  border: 2px solid #000;
-  background: #A9F5A9;
-}
-    enviar{
-      background-color:#A9F5A9;
-    }
-    </style>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
+
+
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+  
+// Actualizamos en funcion del id que recibimos 
+
+if (isset ($_GET ['id_producto']) ) 
+	{
+		$valor = $_GET ['id_producto'];
+		$query = "delete from producto where id_producto = $valor";  
+		//echo $valor;
+		//echo $query;
+		$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+	 }
+ 
+
+
+echo " <p>El producto $valor ha sido eliminado con exito.</p> "; 
+echo "<br>";
+echo "<p><a href='almacen.php'>VOLVER A PRODUCTOS</a></p> ";
+?>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

@@ -1,18 +1,6 @@
-<?php
-// page2.php
-
-session_start();
+<?php include("includes/sesiones.php"); ?>
 
 
-echo 'Usuario: ';
-
-echo  $_SESSION['login_usuario']; // green
-/*echo $_SESSION['animal'];   // cat
-echo date('Y m d H:i:s', $_SESSION['time']);*/
-
-if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
-header('Location: index.php');}
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -54,6 +42,7 @@ header('Location: index.php');}
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <br><br>
+         
           <?php 
           require_once('Connections/bd_farmastock.php');
           if (!empty($_POST)){
@@ -67,16 +56,17 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 //var_dump($stock);
 
 // Realizar una consulta MySQL
-$query = 'INSERT INTO `producto`(`nombre`, `stock`) VALUES ("$nombre","$stock")';
+$query = "INSERT INTO `producto`(`nombre`, `stock`) VALUES ('$nombre','$stock')";
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
 echo "Producto añadido";
+echo "<br>";
+echo "<br>";
+echo "<a href=\"almacen.php\">Volver Almacén</a>";
 echo "</fieldset>";
-
-              
-          } else {
-            echo "<form id=form name=form1 method=post action=anadir_producto.php>";
+          } else{
+              echo "<form id=form name=form1 method=post action=anadir_producto.php >";
   echo "<fieldset>";
   echo "<legend>Registrar nuevo producto</legend>";
  
@@ -91,10 +81,16 @@ echo "</fieldset>";
 echo "<input id=enviar type=submit value='Dar de alta'/>";
 echo "</fieldset>";
   echo "</form>";   
-          }
+        
+	
+
+		 
+		 
+		 
+		  }
           ?>
           
-          
+     
           
           
           
