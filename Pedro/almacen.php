@@ -67,12 +67,13 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    
     echo "\t<tr>\n";
 	$id= $line["id_producto"];
+	
     foreach ($line as $col_value) {
        
 	    echo "\t\t<td>$col_value</td> \n";
 		
     }
-    echo "<td> <a href=\"modificar_producto.php\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
+    echo "<td> <a href=\"modificar_producto.php?id_producto=$id\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
 	
 	echo "<td> <a href=\"borrar_producto.php?id_producto=$id\"  onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
 	echo "";

@@ -1,6 +1,7 @@
 <?php include("includes/sesiones.php"); ?>
 
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -9,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
+<title>Farmastock | Aplicación web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -40,79 +41,62 @@
   
   
   <div class="content">
-  <?php 
-          require_once('Connections/bd_farmastock.php');
-          if (!empty($_POST)){
-              $valor = $_GET ['id_producto'];
-              
-              $link = mysql_connect('127.0.0.1', 'root', '')
+  <!-- InstanceBeginEditable name="Contenido" -->
+ 
+ <?php
+ // Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-//var_dump($nombre);
-//var_dump($stock);
+ 
+ 
+ //esta pagina recibe el id del producto a editar.
+ $id_producto = $_GET["id_producto"];   //id_producto es el que tengo en almacen.php <a href=\"borrar_producto.php?id_producto=$id\">
+ 
+ // sentencia SQL para la SELECCION de ese producto.
+ $ssql = "select * from producto where id_producto=" . $id_producto;
+//ejecuto la sentencia
+$producto_editar = mysql_query($ssql);
+//consigo los datos de ese producto
+$line = mysql_fetch_object($producto_editar);
 
-// Realizar una consulta MySQL
-$query = "UPDATE `producto` SET `id_producto`=['$valor'],`nombre`=[nombre],`stock`=[stock] WHERE id='$valor')";
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
-echo "<fieldset>";
-echo "Producto aÃ±adido";
-header ("Location: almacen.php");
-echo "</fieldset>";
-          }else{
-              $valor = $_GET ['id_producto'];
-              $link = mysql_connect('127.0.0.1', 'root', '')
-    or die('No se pudo conectar: ' . mysql_error());
-echo '';
-mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-              $query = "SELECT * FROM producto WHERE id_producto='$valor'";
-              $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-            
-              echo "<form id=form name=form1 method=post action=anadir_producto.php?id=11>";
-  echo "<fieldset>";
-  echo "<legend>Modificar producto</legend>";
-  echo "<div>";
-   echo "<label for=nombre>Nombre:</label>";
-   echo "<input type=text name=nombre id=nombre value='' size=35 />";
-  echo "</div>";
-      echo "<div>";
-    echo "<label for=cantidad>Cantidad:</label>";
-   echo "<input type=text name=stock id=stock value=''  size=35/></input>";
-  echo "</div>";
-echo "<input id=enviar type=submit value='Dar de alta'/>";
-echo "</fieldset>";
-  echo "</form>";   
-          }
-          ?>    
+// Cerrar la conexión
+mysql_close($link);
+
+//creo un  formulario con los datos de ese producto.
+
+ ?>
+ 
+ <form action="update.php" method="post">
+ 	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
+ 	Producto:
+    <br />
+    <input type="text" name="nombre" value="<?php echo $line->nombre;?>" /> <!-- name es cualquier nombre, value debe llamarse igual a 																					                                                                             lo que tenemos en la base de datos -->
+    <br />
+    <br />
+    Cantidad:
+    <br />
+    <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
+     <br />
+      <br />
+      <input type="submit" value="Modificar" />
+     </form>
+     
+     <br />
+     <br />
+     <a href="almacen.php">Cancelar y seleccionar otro producto</a>
+ 
+ 
+ 
+ 
+ 
+  <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
     <?php include("includes/pie.php");?>
-    </div>
- </div>
-<style type="text/css"> 
-    fieldset{
-        
-    margin-top: 50px;
-    }
-    form{
-        margin-top: -50px; 
-    }
- div {
-    margin: .4em 0; //margen para que no esten pegados.
-}
-div label {
-  width: 10%; 
-  float: left;
-}
-    input:focus { //estilos al hacer focus
-  border: 2px solid #000;
-  background: #A9F5A9; 
-}
-    enviar{
-      background-color:#A9F5A9;
-
-    }
-    </style>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
 </body>
-</html>
+<!-- InstanceEnd --></html>
