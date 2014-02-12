@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -40,12 +40,11 @@
   
   
   <div class="content">
-  <!-- InstanceBeginEditable name="Contenido" -->
   <?php 
           require_once('Connections/bd_farmastock.php');
           if (!empty($_POST)){
-              $nombre=$_POST['nombre'];
-              $stock=$_POST['stock'];
+              $valor = $_GET ['id_producto'];
+              
               $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
@@ -54,36 +53,43 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 //var_dump($stock);
 
 // Realizar una consulta MySQL
-$query = "INSERT INTO `producto`(`nombre`, `stock`) VALUES ('$nombre','$stock')";
+$query = "UPDATE `producto` SET `id_producto`=['$valor'],`nombre`=[nombre],`stock`=[stock] WHERE id='$valor')";
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
-echo "Producto añadido";
-echo "<br>";
-echo "<br>";
-echo "<a href=\"almacen.php\">Volver Almacén</a>";
+echo "Producto aÃ±adido";
+header ("Location: almacen.php");
 echo "</fieldset>";
-          } else{
-              echo "<form id=form name=form1 method=post action=anadir_producto.php >";
+          }else{
+              $valor = $_GET ['id_producto'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+              $query = "SELECT * FROM producto WHERE id_producto='$valor'";
+              $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+            
+              echo "<form id=form name=form1 method=post action=anadir_producto.php?id=11>";
   echo "<fieldset>";
-  echo "<legend>Registrar nuevo producto</legend>";
- 
+  echo "<legend>Modificar producto</legend>";
   echo "<div>";
    echo "<label for=nombre>Nombre:</label>";
-   echo "<input type=text name=nombre id=nombre size=35 />";
+   echo "<input type=text name=nombre id=nombre value='' size=35 />";
   echo "</div>";
       echo "<div>";
     echo "<label for=cantidad>Cantidad:</label>";
-   echo "<input type=text name=stock id=stock size=35 />";
+   echo "<input type=text name=stock id=stock value=''  size=35/></input>";
   echo "</div>";
-echo "<input id=enviar type=submit value='Modificar'/>";
+echo "<input id=enviar type=submit value='Dar de alta'/>";
 echo "</fieldset>";
   echo "</form>";   
-        
-		}
-          ?>
-          
-          </body>
+          }
+          ?>    
+  </div>
+  <div class="footer">
+    <?php include("includes/pie.php");?>
+    </div>
+ </div>
 <style type="text/css"> 
     fieldset{
         
@@ -107,13 +113,6 @@ div label {
       background-color:#A9F5A9;
 
     }
-</style>
-
-  <!-- InstanceEndEditable -->
-  </div>
-  <div class="footer">
-    <?php include("includes/pie.php");?>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
+    </style>
 </body>
-<!-- InstanceEnd --></html>
+</html>
