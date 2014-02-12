@@ -207,3 +207,15 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 top: 0%;
 
 }
+
+.sesiones{
+	position:absolute;
+	top:2%;
+	left:90%;
+	}
+	
+	
+	
+.iconos2{
+		margin: 0px 0px 0px 120px;
+	}
