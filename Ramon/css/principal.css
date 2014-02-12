@@ -186,8 +186,10 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 
 .logo_logout{
 	position:absolute;
-	top:2%;
-	left:90%;
+	top: 5%;
+	/*margin-right: 110%;
+	margin-bottom: 110%;*/
+	left: 85%;
 	}
 
 .tabla_productos{
@@ -208,10 +210,15 @@ top: 0%;
 
 }
 
-.sesiones{
+.sesion{
 	position:absolute;
-	top:2%;
-	left:90%;
+	top:13%;
+	left:85%;
+	}
+.sesion2{
+	position:absolute;
+	top:16%;
+	left:85%;
 	}
 	
 	
@@ -219,3 +226,4 @@ top: 0%;
 .iconos2{
 		margin: 0px 0px 0px 120px;
 	}
+	
