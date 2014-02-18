@@ -43,10 +43,10 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <div class="iconos1">
-   <img src="images/bayer.jpeg" width="100" height="100" alt="Bayer" />
-   <span class="iconos2"><img src="images/durex.jpeg" width="100" height="100" alt="Durex" /></span><img class="iconos2" src="images/canifarma.jpeg" width="100" height="100" alt="Canifarma" />
-   <img class="iconos2" src="images/europharm.jpeg" width="100" height="100" alt="Europharm" /></div>
+  
+   <img class="iconos" src="images/bayer.jpeg" width="100" height="100" alt="Bayer" />
+   <span class="iconos"><img src="images/durex.jpeg" width="100" height="100" alt="Durex" /></span><img class="iconos" src="images/canifarma.jpeg" width="100" height="100" alt="Canifarma" />
+   <img class="iconos" src="images/europharm.jpeg" width="100" height="100" alt="Europharm" />
   
   <div class="tabla_proveedores">
 <p>Datos de nuestros Proveedores:</p>
