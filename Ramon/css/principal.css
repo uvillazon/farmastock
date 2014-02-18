@@ -55,7 +55,9 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 
 /* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
 .header {
-	
+	float:left;
+	width: 300px;
+
 }
 
 /* ~~ Estas son las columnas para el diseño. ~~ 
@@ -92,7 +94,7 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
-	margin-top: 120px;
+	margin-top: 30px;
 	padding-top: 20px;
 	margin-bottom: 10px;
 	padding-right: 10px;
@@ -185,11 +187,13 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 }
 
 .logo_logout{
-	position:absolute;
-	top: 5%;
+	
 	/*margin-right: 110%;
 	margin-bottom: 110%;*/
-	left: 85%;
+	float:right;
+	width: 300px;
+	padding-top: 20px;
+	
 	}
 
 .tabla_productos{
@@ -209,21 +213,18 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 top: 0%;
 
 }
+	
+.iconos{
+		margin: 0px 0px 0px 80px;
+	}
+	
+#usuario {
+	clear:right;
+	float:right;
+	margin-top: 5px;
+}
 
-.sesion{
-	position:absolute;
-	top:13%;
-	left:85%;
-	}
-.sesion2{
-	position:absolute;
-	top:16%;
-	left:85%;
-	}
+#puerta {
+	float:right;
 	
-	
-	
-.iconos2{
-		margin: 0px 0px 0px 120px;
-	}
-	
+}
