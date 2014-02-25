@@ -42,9 +42,95 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es añadir proveedor</p>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <br><br>
+         
+          <?php 
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $nombre=$_POST['nombre'];
+              $direccion=$_POST ['direccion'];
+			  $telefono=$_POST ['telefono'];
+			  $email=$_POST ['email'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+//var_dump($nombre);
+//var_dump($stock);
+
+// Realizar una consulta MySQL
+$query = "INSERT INTO `proveedor`(`nombre`, `direccion`, `telefono`, `email` ) VALUES ('$nombre','$direccion', '$telefono', '$email')";
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+echo "<fieldset>";
+echo "Producto añadido";
+echo "<br>";
+echo "<br>";
+echo "<a href=\"proveedor.php\">Volver a Proveedor</a>";
+echo "</fieldset>";
+          } else{
+              echo "<form id=form name=form1 method=post action=anadir_proveedor.php >";
+  echo "<fieldset>";
+  echo "<legend>Registrar nuevo proveedor</legend>";
+ 
+  echo "<div>";
+   echo "<label for=nombre>Nombre:</label>";
+   echo "<input type=text name=nombre id=nombre size=35 />";
+  echo "</div>";
+     
+	  echo "<div>";
+    echo "<label for=Direccion>Direccion:</label>";
+   echo "<input type=text name=direccion id=stock size=35 />";
+  echo "</div>";
+ 
+  echo "<div>";
+    echo "<label for=telefono>Telefono:</label>";
+   echo "<input type=text name=telefono id=telefono size=35 />";
+  echo "</div>";
+ 
+  echo "<div>";
+    echo "<label for=email>Email:</label>";
+   echo "<input type=text name=email id=email size=35 />";
+  echo "</div>";
+  
+  
+
+echo "<input id=enviar type=submit value='Dar de alta'/>";
+echo "</fieldset>";
+  echo "</form>";   
+        
+	
+
+		 
+		 
+		 
+		  }
+          ?>
+          
+          <style type="text/css"> 
+    fieldset{
+        
+    margin-top: -50px;
+    }
+    form{
+        margin-top: -50px; 
+    }
+ div {
+    margin: .4em 0; //margen para que no esten pegados.
+}
+div label {
+  width: 10%; 
+  float: left;
+}
+    input:focus { //estilos al hacer focus
+  border: 2px solid #000;
+  background: #A9F5A9; 
+}
+    enviar{
+      background-color:#A9F5A9;
+
+    }
+</style>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

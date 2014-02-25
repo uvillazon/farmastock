@@ -60,8 +60,8 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 // Imprimir los resultados en HTML
 
 
-echo "<table border=1 >\n";
-echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
+echo "<table border=0 class=\"tabla\" >\n";
+echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td>Precio Unidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
 
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    

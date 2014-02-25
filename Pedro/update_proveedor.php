@@ -1,7 +1,6 @@
 <?php include("includes/sesiones.php"); ?>
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -42,14 +41,41 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <center>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><a href="venta_publico.php">Venta Mostrador </a></p>
-  </center> 
-  <br /><br /><br />
- <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
+<?php 
+
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')     or die('No se pudo conectar: ' . mysql_error());
+//echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+// esta es la pagina donde hacemos el update de productos
+//Sentencia SQL para hacer UPDATE
+$ssql = "update proveedor set ";
+$ssql .= "nombre='" . $_POST["nombre"] . "', ";
+$ssql .= "direccion='" . $_POST["direccion"] . "', ";
+$ssql .= "telefono='" . $_POST["telefono"] . "', ";
+$ssql .= "email='" . $_POST["email"] . "' ";
+
+$ssql .= "where id_proveedor = " . $_POST["id_proveedor"];
+
+//echo "$ssql";
+
+//ejecuto la sentencia de update me devuelve un si o un no ejecutada la sentencia
+if (mysql_query ($ssql) ){
+	echo "Proveedor actualizado con éxito";
+}else{
+	echo "Hubo un error al actualizar el proveedor";
+}
+
+
+// Cerrar la conexión
+mysql_close($link);
+
+ ?>
+ <br /><br /><br /><br /><br /><br />
+ <a href="proveedor.php">Volver a seleccionar otro producto </a>
+
+
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
