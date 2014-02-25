@@ -42,14 +42,57 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <center>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><a href="venta_publico.php">Venta Mostrador </a></p>
-  </center> 
-  <br /><br /><br />
- <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
+ <p> Esto es venta al publico </p>
+ 
+
+<?php
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+// Realizar una consulta MySQL
+$query = 'SELECT * FROM venta';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+// Imprimir los resultados en HTML
+
+
+echo "<table border=1 >\n";
+echo "<tr><td>Id empleado</td><td> Id Productos</td><td>Fecha Venta.</td><td>Cantidad</td> <td>Nombre</td><td>Precio </td><td> <a href=\"anadir_venta.php\"> <img src=\"images/venta.jpg\" width=23 height=23 alt=\"modificar\" title=\"Vender\" /> </a> </td></tr>";
+
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+   
+    echo "\t<tr>\n";
+	$id= $line["id_producto"];
+	
+    foreach ($line as $col_value) {
+       
+	    echo "\t\t<td>$col_value</td> \n";
+		
+    }
+    echo "<td> <a href=\"modificar_venta.php?id_producto=$id\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
+	
+	echo "<td> <a href=\"borrar_venta.php?id_producto=$id\"  onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+	echo "";
+	
+	echo "\t</tr>\n";
+	 
+	
+}
+
+echo "</table>\n";
+
+
+// Liberar resultados
+mysql_free_result($result);
+
+// Cerrar la conexión
+mysql_close($link);
+?>
+
+ 
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

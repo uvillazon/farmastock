@@ -42,14 +42,34 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <center>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><a href="venta_publico.php">Venta Mostrador </a></p>
-  </center> 
-  <br /><br /><br />
- <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
+ <?php 
+
+
+
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+  
+// Actualizamos en funcion del id que recibimos 
+
+if (isset ($_GET ['id_producto']) ) 
+	{
+		$valor = $_GET ['id_producto'];
+		$query = "delete from venta where id_producto = $valor";  
+		//echo $valor;
+		//echo $query;
+		$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+	 }
+ 
+
+
+echo " <p>El producto $valor ha sido eliminado con exito de ventas.</p> "; 
+echo "<br>";
+echo "<p><a href='venta_publico.php'>VOLVER A VENTA AL PÚBLICO</a></p> ";
+?>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
