@@ -127,17 +127,20 @@ inicio_sesion {
 </head>
 
 <body>
+
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
   <div class="header">
   <?php include("includes/cabecera.php"); ?>
-     
-     </div>
-     
-       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+    <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            
        <!-- InstanceEndEditable --></div>
+       
+     
+  </div>
+     
+     
   
   
   
