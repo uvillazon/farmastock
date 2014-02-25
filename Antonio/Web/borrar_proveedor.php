@@ -43,9 +43,34 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es borrar proveedor</p>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <?php 
+
+
+
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+  
+// Actualizamos en funcion del id que recibimos 
+
+if (isset ($_GET ['id_proveedor']) ) 
+	{
+		$valor = $_GET ['id_proveedor'];
+		$query = "delete from proveedor where id_proveedor = $valor";  
+		//echo $valor;
+		//echo $query;
+		$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+	 }
+ 
+
+
+echo " <p>El proveedor $valor ha sido eliminado con exito.</p> "; 
+echo "<br>";
+echo "<p><a href='proveedor.php'>VOLVER A PRODUCTOS</a></p> ";
+?>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

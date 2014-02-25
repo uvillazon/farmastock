@@ -52,8 +52,13 @@
     <p>&nbsp;</p>
     <p>Farmastock es una aplicación dedicada al sector de la farmacia para facilitar la labor diaria al farmaceutico, su función principal es la de controlar el stock del almacén dando así un control exhaustivo de los productos.</p>
     <p>&nbsp;</p>
+    <p>&nbsp;</p>
     <p>- Podemos ver el stock del almacen actualizado.</p>
+    <p>-Agregar, modificar o borrar algun producto del almacen.</p>
+    <p>&nbsp;</p>
     <p>- Los datos de los proveedores que nos suministran los productos.</p>
+    <p>-Agregar, modificar o borrar algun proveedor de nuestra base de datos.</p>
+    <p>&nbsp;</p>
     <p>- Las ventas obtenidas diarias, semanales y mensuales.</p>
   </h3>
 <p>&nbsp;</p>

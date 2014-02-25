@@ -42,55 +42,56 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
+ <p> Esto es venta al publico </p>
  
- <?php
- // Conectando, seleccionando la base de datos
+
+<?php
+// Conectando, seleccionando la base de datos
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
- 
- 
- //esta pagina recibe el id del producto a editar.
- $id_producto = $_GET["id_producto"];   //id_producto es el que tengo en almacen.php <a href=\"borrar_producto.php?id_producto=$id\">
- 
- // sentencia SQL para la SELECCION de ese producto.
- $ssql = "select * from producto where id_producto=" . $id_producto;
-//ejecuto la sentencia
-$producto_editar = mysql_query($ssql);
-//consigo los datos de ese producto
-$line = mysql_fetch_object($producto_editar);
 
+// Realizar una consulta MySQL
+$query = 'SELECT * FROM venta';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+// Imprimir los resultados en HTML
+
+
+echo "<table border=1 >\n";
+echo "<tr><td>Id empleado</td><td> Id Productos</td><td>Fecha Venta.</td><td>Cantidad</td> <td>Nombre</td><td>Precio </td><td> <a href=\"anadir_venta.php\"> <img src=\"images/venta.jpg\" width=23 height=23 alt=\"modificar\" title=\"Vender\" /> </a> </td></tr>";
+
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+   
+    echo "\t<tr>\n";
+	$id= $line["id_producto"];
+	
+    foreach ($line as $col_value) {
+       
+	    echo "\t\t<td>$col_value</td> \n";
+		
+    }
+    echo "<td> <a href=\"modificar_venta.php?id_producto=$id\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
+	
+	echo "<td> <a href=\"borrar_venta.php?id_producto=$id\"  onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+	echo "";
+	
+	echo "\t</tr>\n";
+	 
+	
+}
+
+echo "</table>\n";
+
+
+// Liberar resultados
+mysql_free_result($result);
 
 // Cerrar la conexión
 mysql_close($link);
+?>
 
-//creo un  formulario con los datos de ese producto.
-
- ?>
- 
- <form action="update.php" method="post">
- 	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
- 	Producto:
-    <br />
-    <input type="text" name="nombre" value="<?php echo $line->nombre;?>" /> <!-- name es cualquier nombre, value debe llamarse igual a 																					                                                                             lo que tenemos en la base de datos -->
-    <br />
-    <br />
-    Cantidad:
-    <br />
-    <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
-     <br />
-      <br />
-      <input type="submit" value="Modificar" />
-     </form>
-     
-     <br />
-     <br />
-     <a href="almacen.php">Cancelar y seleccionar otro producto</a>
- 
- 
- 
- 
  
   <!-- InstanceEndEditable -->
   </div>

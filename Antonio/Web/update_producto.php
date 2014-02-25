@@ -1,7 +1,6 @@
 <?php include("includes/sesiones.php"); ?>
 
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -42,56 +41,39 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
- 
- <?php
- // Conectando, seleccionando la base de datos
-$link = mysql_connect('127.0.0.1', 'root', '')
-    or die('No se pudo conectar: ' . mysql_error());
-echo '';
+<?php 
+
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')     or die('No se pudo conectar: ' . mysql_error());
+//echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
- 
- 
- //esta pagina recibe el id del producto a editar.
- $id_producto = $_GET["id_producto"];   //id_producto es el que tengo en almacen.php <a href=\"borrar_producto.php?id_producto=$id\">
- 
- // sentencia SQL para la SELECCION de ese producto.
- $ssql = "select * from producto where id_producto=" . $id_producto;
-//ejecuto la sentencia
-$producto_editar = mysql_query($ssql);
-//consigo los datos de ese producto
-$line = mysql_fetch_object($producto_editar);
+
+// esta es la pagina donde hacemos el update de productos
+//Sentencia SQL para hacer UPDATE
+$ssql = "update producto set ";
+$ssql .= "nombre='" . $_POST["nombre"] . "', ";
+$ssql .= "stock='" . $_POST["cantidad"] . "', ";
+$ssql .= "precio_unid='" . $_POST["precio_unid"] . "' ";
+$ssql .= "where id_producto = " . $_POST["id_producto"];
+
+//echo "$ssql";
+
+//ejecuto la sentencia de update me devuelve un si o un no ejecutada la sentencia
+if (mysql_query ($ssql) ){
+	echo "Producto actualizado con éxito";
+}else{
+	echo "Hubo un error al actualizar el producto";
+}
 
 
 // Cerrar la conexión
 mysql_close($link);
 
-//creo un  formulario con los datos de ese producto.
-
  ?>
- 
- <form action="update.php" method="post">
- 	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
- 	Producto:
-    <br />
-    <input type="text" name="nombre" value="<?php echo $line->nombre;?>" /> <!-- name es cualquier nombre, value debe llamarse igual a 																					                                                                             lo que tenemos en la base de datos -->
-    <br />
-    <br />
-    Cantidad:
-    <br />
-    <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
-     <br />
-      <br />
-      <input type="submit" value="Modificar" />
-     </form>
-     
-     <br />
-     <br />
-     <a href="almacen.php">Cancelar y seleccionar otro producto</a>
- 
- 
- 
- 
- 
+ <br /><br /><br /><br /><br /><br />
+ <a href="almacen.php">Volver a seleccionar otro producto </a>
+
+
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

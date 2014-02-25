@@ -42,14 +42,8 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <center>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p><a href="venta_publico.php">Venta Mostrador </a></p>
-  </center> 
-  <br /><br /><br />
- <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
+ <p>Esto es ventas realizadas </p>
+ 
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
