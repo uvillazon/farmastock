@@ -191,9 +191,27 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 	}
 
 .tabla_productos{
-	margin: 10px 0px 10px 200px;
+	margin: 10px 0px 0px 140px;
+	
+	
 		
 }
+
+
+.tabla td {
+	padding: 5px;
+	font-size: 16px;
+	/*background-color: #83aec0;*/
+	border-radius: 4px;
+	background-image: url(../images/fondo_tr.png);
+	background-repeat: repeat-x;
+	color: #000000;
+	border-right-color: #999999;
+	font-family: "“Trebuchet MS”", Arial;	/*text-transform: uppercase;*/
+}
+
+
+
 
 .tabla_proveedores{
 	margin-top: 10px;
@@ -207,3 +225,15 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 top: 0%;
 
 }
+
+.sesiones{
+	position:absolute;
+	top:2%;
+	left:90%;
+	}
+	
+	
+	
+.iconos2{
+		margin: 0px 0px 0px 120px;
+	}

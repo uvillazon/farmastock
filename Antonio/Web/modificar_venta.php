@@ -42,6 +42,7 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
+ <p>Esto es modificar venta </p> <br />
  
  <?php
  // Conectando, seleccionando la base de datos
@@ -55,7 +56,7 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
  $id_producto = $_GET["id_producto"];   //id_producto es el que tengo en almacen.php <a href=\"borrar_producto.php?id_producto=$id\">
  
  // sentencia SQL para la SELECCION de ese producto.
- $ssql = "select * from producto where id_producto=" . $id_producto;
+ $ssql = "select * from venta where id_producto=" . $id_producto;
 //ejecuto la sentencia
 $producto_editar = mysql_query($ssql);
 //consigo los datos de ese producto
@@ -69,16 +70,20 @@ mysql_close($link);
 
  ?>
  
- <form action="update.php" method="post">
+ <form action="update_venta.php" method="post">
  	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
- 	Producto:
+ 	Cantidad:
     <br />
-    <input type="text" name="nombre" value="<?php echo $line->nombre;?>" /> <!-- name es cualquier nombre, value debe llamarse igual a 																					                                                                             lo que tenemos en la base de datos -->
+    <input type="text" name="cantidad" value="<?php echo $line->cantidad;?>" /> <!-- name es cualquier nombre, value debe llamarse igual a 																					                                                                             lo que tenemos en la base de datos -->
     <br />
     <br />
-    Cantidad:
+    Nombre:
     <br />
-    <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
+    <input type="text" name="nombre_prod" value="<?php echo $line->nombre_prod;?>" />
+     <br />
+      Precio :
+	  <br />
+	  <input type="text" name="precio_unidad" value="<?php echo $line->precio_unidad;?>" />
      <br />
       <br />
       <input type="submit" value="Modificar" />
@@ -86,11 +91,7 @@ mysql_close($link);
      
      <br />
      <br />
-     <a href="almacen.php">Cancelar y seleccionar otro producto</a>
- 
- 
- 
- 
+     <a href="almacen.php">Cancelar y seleccionar otra venta</a>
  
   <!-- InstanceEndEditable -->
   </div>

@@ -46,46 +46,55 @@
           <?php 
           require_once('Connections/bd_farmastock.php');
           if (!empty($_POST)){
-              $nombre=$_POST['nombre'];
-              $stock=$_POST['stock'];
-			  $precio_unid=$_POST['precio_unid'];
+             // $id_empleado=$_POST['id_empleado'];
+			  $cantidad=$_POST['cantidad'];
+              $id_producto=$_POST['id_producto'];
+			  $precio_unidad=$_POST['precio_unidad'];
               $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-//var_dump($nombre);
-//var_dump($stock);
-//var_dump($precio);
+//var_dump($cantidad);
+//var_dump($nombre_prod);
+//var_dump($precio_uniadad);
 
 // Realizar una consulta MySQL
-$query = "INSERT INTO `producto`(`nombre`, `stock`, `precio_unid`) VALUES ('$nombre','$stock', '$precio_unid')";
+$query = "INSERT INTO `venta`(`cantidad`, `id_producto`, `precio_unidad`) VALUES ('$cantidad','$id_producto', '$precio_unidad')";
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+$query2 = 'SELECT * FROM venta where id_producto = id_producto';
 
 echo "<fieldset>";
-echo "Producto añadido";
+echo "Producto añadido en ventas";
 echo "<br>";
 echo "<br>";
-echo "<a href=\"almacen.php\">Volver Almacén</a>";
+echo "<a href=\"venta_publico.php\">Volver a venta al público</a>";
 echo "</fieldset>";
           } else{
-              echo "<form id=form name=form1 method=post action=anadir_producto.php >";
+              echo "<form id=form name=form1 method=post action=anadir_venta.php >";
   echo "<fieldset>";
-  echo "<legend>Registrar nuevo producto</legend>";
+  echo "<legend>Registrar nuevo producto en ventas</legend>";
  
-  echo "<div>";
-   echo "<label for=nombre>Nombre:</label>";
-   echo "<input type=text name=nombre id=nombre size=35 />";
+ echo "<div>";
+   echo "<label for=id_empleado>id_empleado:</label>";
+   echo "<input type=text name=id_empleado id=id_empleado size=35 />";
   echo "</div>";
-      echo "<div>";
-    echo "<label for=cantidad>Cantidad:</label>";
-   echo "<input type=text name=stock id=stock size=35 />";
+  
+  echo "<div>";
+   echo "<label for=cantidad>Cantidad:</label>";
+   echo "<input type=text name=cantidad id=cantidad size=35 />";
+  echo "</div>";
+     
+	  echo "<div>";
+    echo "<label for=id_producto>Id Producto:</label>";
+   echo "<input type=text name=id_producto id=id_producto size=35 />";
   echo "</div>";
   
    echo "<div>";
-    echo "<label for=precio_unid>Precio Unid:</label>";
-   echo "<input type=text name=precio_unid id=precio_unid size=35 />";
+    echo "<label for=precio_unidad>Precio Unid:</label>";
+   echo "<input type=text name=precio_unidad id=precio_unidad size=35 />";
   echo "</div>";
-echo "<input id=enviar type=submit value='Dar de alta'/>";
+
+echo "<input id=enviar type=submit value='Realizar la venta'/>";
 echo "</fieldset>";
   echo "</form>";   
         

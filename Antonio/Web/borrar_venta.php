@@ -42,56 +42,34 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
- 
- <?php
- // Conectando, seleccionando la base de datos
+ <?php 
+
+
+
+// Conectando, seleccionando la base de datos
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+  
+// Actualizamos en funcion del id que recibimos 
+
+if (isset ($_GET ['id_producto']) ) 
+	{
+		$valor = $_GET ['id_producto'];
+		$query = "delete from venta where id_producto = $valor";  
+		//echo $valor;
+		//echo $query;
+		$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+	 }
  
- 
- //esta pagina recibe el id del producto a editar.
- $id_producto = $_GET["id_producto"];   //id_producto es el que tengo en almacen.php <a href=\"borrar_producto.php?id_producto=$id\">
- 
- // sentencia SQL para la SELECCION de ese producto.
- $ssql = "select * from producto where id_producto=" . $id_producto;
-//ejecuto la sentencia
-$producto_editar = mysql_query($ssql);
-//consigo los datos de ese producto
-$line = mysql_fetch_object($producto_editar);
 
 
-// Cerrar la conexión
-mysql_close($link);
-
-//creo un  formulario con los datos de ese producto.
-
- ?>
- 
- <form action="update.php" method="post">
- 	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
- 	Producto:
-    <br />
-    <input type="text" name="nombre" value="<?php echo $line->nombre;?>" /> <!-- name es cualquier nombre, value debe llamarse igual a 																					                                                                             lo que tenemos en la base de datos -->
-    <br />
-    <br />
-    Cantidad:
-    <br />
-    <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
-     <br />
-      <br />
-      <input type="submit" value="Modificar" />
-     </form>
-     
-     <br />
-     <br />
-     <a href="almacen.php">Cancelar y seleccionar otro producto</a>
- 
- 
- 
- 
- 
+echo " <p>El producto $valor ha sido eliminado con exito de ventas.</p> "; 
+echo "<br>";
+echo "<p><a href='venta_publico.php'>VOLVER A VENTA AL PÚBLICO</a></p> ";
+?>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
