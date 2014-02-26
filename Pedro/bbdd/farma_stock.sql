@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2014 a las 16:56:40
+-- Tiempo de generación: 26-02-2014 a las 08:27:23
 -- Versión del servidor: 5.5.32
 -- Versión de PHP: 5.4.19
 
@@ -51,17 +51,21 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `nombre_login` varchar(20) NOT NULL,
   `contrasena` varchar(64) NOT NULL,
   `email` varchar(20) NOT NULL,
+  `estado` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_empleado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `dni`, `nombre`, `apellidos`, `direccion`, `telefono`, `nombre_login`, `contrasena`, `email`) VALUES
-(1, 8888997, 'Antonio', 'Molina Ruiz', 'Segura de L', 655853741, 'toniadmin', '*A4B6157319038724E3560894F7F932C8886EBFCF', 'chiripa1992@gmail.co'),
-(2, 8741236, 'Pedro', 'Navarro', 'Bollullos', 698741236, 'pedroadmin', '*A4B6157319038724E3560894F7F932C8886EBFCF', 'montygas@gmail.com'),
-(3, 2147483647, 'Ramon', 'Moya', 'Sevilla', 652314789, 'ramonadmin', '*A4B6157319038724E3560894F7F932C8886EBFCF', 'ramon200390@gmail.co');
+INSERT INTO `empleado` (`id_empleado`, `dni`, `nombre`, `apellidos`, `direccion`, `telefono`, `nombre_login`, `contrasena`, `email`, `estado`) VALUES
+(1, 8888997, 'Antonio', 'Molina Ruiz', 'Segura de L', 655853741, 'toniadmin', '*A4B6157319038724E3560894F7F932C8886EBFCF', 'chiripa1992@gmail.co', 0),
+(2, 8741236, 'Pedro', 'Navarro', 'Bollullos', 698741236, 'pedroadmin', '*A4B6157319038724E3560894F7F932C8886EBFCF', 'montygas@gmail.com', 0),
+(3, 2147483647, 'Ramon', 'Moya', 'Sevilla', 652314789, 'ramonadmin', '*A4B6157319038724E3560894F7F932C8886EBFCF', 'ramon200390@gmail.co', 0),
+(4, 0, '', '', '', 0, '', 'd41d8cd98f00b204e9800998ecf8427e', '', 0),
+(5, 0, '', '', '', 0, '', 'd41d8cd98f00b204e9800998ecf8427e', '', 0),
+(6, 0, '', '', '', 0, '', 'd41d8cd98f00b204e9800998ecf8427e', '', 0);
 
 -- --------------------------------------------------------
 
@@ -96,22 +100,22 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `id_producto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `stock` int(11) NOT NULL,
+  `precio_unid` decimal(5,2) NOT NULL,
   UNIQUE KEY `id_producto` (`id_producto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `nombre`, `stock`) VALUES
-(1, 'Aspirina', 10),
-(2, 'Termometro', 4),
-(3, 'Hemoal', 3),
-(4, 'Pañales', 6),
-(5, 'Durex Sensitive', 12),
-(6, 'Potito tern', 5),
-(7, 'Biberones', 10),
-(8, 'Reflex', 12);
+INSERT INTO `producto` (`id_producto`, `nombre`, `stock`, `precio_unid`) VALUES
+(54, 'Aspirina', 10, '5.00'),
+(55, 'Ibuprofeno', 101, '4.20'),
+(57, 'Omeprazol', 85, '2.25'),
+(58, 'Romilar', 12, '3.30'),
+(59, 'Mucosan', 16, '4.55'),
+(60, 'Aspis', 10, '3.00'),
+(61, 'Codeina', 11, '5.00');
 
 -- --------------------------------------------------------
 
@@ -136,7 +140,7 @@ INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `direccion`, `telefono`, `ema
 (1, 'Bayer', 'Madrid', 902368741, 'bayer@info.net'),
 (2, 'Amazon', 'Madrid', 902698532, 'amazon@info.net'),
 (3, 'Vademecum', 'Barcelona', 907789412, 'vademecum@info.net'),
-(4, 'Dodot', 'Valencia', 903741258, ''),
+(4, 'Dodot', 'Valencia', 903741258, 'dodot@info.net'),
 (5, 'Durex', 'Alemania', 2147483647, ''),
 (6, 'Hero Baby', 'Sevilla', 955874123, ''),
 (7, 'Biberones H', 'Madrid', 902485796, ''),
@@ -166,9 +170,18 @@ CREATE TABLE IF NOT EXISTS `venta` (
   `id_producto` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `cantidad` int(4) NOT NULL,
+  `nombre_prod` varchar(50) NOT NULL,
+  `precio_unidad` decimal(5,2) NOT NULL,
   UNIQUE KEY `id_emple` (`id_empleado`,`id_producto`),
   KEY `id_product` (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`id_empleado`, `id_producto`, `fecha`, `cantidad`, `nombre_prod`, `precio_unidad`) VALUES
+(1, 55, '2014-02-25', 20, 'Ibuprofeno', '4.20');
 
 --
 -- Restricciones para tablas volcadas
