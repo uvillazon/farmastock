@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -62,7 +62,7 @@ $proveedor_editar = mysql_query($ssql);
 $line = mysql_fetch_object($proveedor_editar);
 
 
-// Cerrar la conexión
+// Cerrar la conexion
 mysql_close($link);
 
 //creo un  formulario con los datos de ese producto.

@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
@@ -43,56 +44,70 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
  <p> Esto es venta al publico </p>
- 
+ <br />
 
-<?php
+
+<?php 
+
+
+
 // Conectando, seleccionando la base de datos
-$link = mysql_connect('127.0.0.1', 'root', '')
+$link = mysql_connect('127.0.0.1', 'root', '')     or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+// sentencia SQL para la SELECCION de ese producto.
+ 		$consulta_mysql = "select * from producto";
+  		$resultado_consulta_mysql=mysql_query ($consulta_mysql, $link);
+ 
+// Cerrar la conexiï¿½n
+		mysql_close($link);
+?>
+
+
+
+
+
+<form action=anadir_venta.php method="POST">
+
+ID EMPLEADO:     
+<input type="text" name="nombre" value="<?php echo  $_SESSION['login_usuario'];?>" /> <br /><br />
+
+PRODUCTO: 
+
+<?php echo "<select name='select1'>";
+while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fila de resultados .
+{
+    echo "<option value='".$fila['nombre']."'>"   .$fila['nombre']."   </option>";
+}
+echo "</select>";
+
+
+?>
+<br /><br />
+
+
+
+CANTIDAD:
+<input type="text" name="cantidad" />
+<br /><br />
+
+PRECIO:
+<input type="text" name="precio" />
+<br />
+<input type="submit" value="Realizar venta" />
+
+</form>
+<?php 
+ $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
 
-// Realizar una consulta MySQL
-$query = 'SELECT * FROM venta';
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-
-// Imprimir los resultados en HTML
-
-
-echo "<table border=1 >\n";
-echo "<tr><td>Id empleado</td><td> Id Productos</td><td>Fecha Venta.</td><td>Cantidad</td> <td>Nombre</td><td>Precio </td><td> <a href=\"anadir_venta.php\"> <img src=\"images/venta.jpg\" width=23 height=23 alt=\"modificar\" title=\"Vender\" /> </a> </td></tr>";
-
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-   
-    echo "\t<tr>\n";
-	$id= $line["id_producto"];
-	
-    foreach ($line as $col_value) {
-       
-	    echo "\t\t<td>$col_value</td> \n";
-		
-    }
-    echo "<td> <a href=\"modificar_venta.php?id_producto=$id\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
-	
-	echo "<td> <a href=\"borrar_venta.php?id_producto=$id\"  onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
-	echo "";
-	
-	echo "\t</tr>\n";
-	 
-	
-}
-
-echo "</table>\n";
-
-
-// Liberar resultados
-mysql_free_result($result);
-
-// Cerrar la conexión
-mysql_close($link);
+//$query = "INSERT INTO `venta`(`id_empleado`, `id_producto`, `fecha`, `cantidad`, `nombre_prod`, `precio_unidad`) VALUES ,,,,,";
+//$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 ?>
 
- 
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">

@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -42,7 +42,42 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
- <p>Esto es ventas realizadas </p>
+ <?php
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+// Realizar una consulta MySQL
+
+$query = 'SELECT * FROM ventas_realizadas';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+// Imprimir los resultados en HTML
+echo "<table border=1 >\n";
+echo "<tr><td>Id empleado</td><td> Id Productos</td><td>Fecha Venta</td><td>Cantidad</td> <td>Nombre</td><td>Precio </td></tr>";
+
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+   
+    echo "\t<tr>\n";
+	$id= $line["id_producto"];
+	
+    foreach ($line as $col_value) {
+       
+	    echo "\t\t<td>$col_value</td> \n";		
+    }
+	echo "\t</tr>\n";	
+}
+echo "</table>\n";
+
+
+// Liberar resultados
+mysql_free_result($result);
+
+// Cerrar la conexiï¿½n
+mysql_close($link);
+?>
  
   <!-- InstanceEndEditable -->
   </div>
