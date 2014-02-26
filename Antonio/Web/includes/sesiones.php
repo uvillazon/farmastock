@@ -14,5 +14,4 @@ echo date('Y m d H:i:s', $_SESSION['time']);*/
 
 if(empty($_SESSION['login_usuario'])) { // Recuerda usar corchetes.
 header('Location: index.php');}
-
 ?>
