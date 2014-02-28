@@ -191,7 +191,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 	}
 
 .tabla_productos{
-	margin: 10px 0px 0px 140px;
+	margin: 0px 0px 0px 120px;
 	
 	
 		
@@ -200,14 +200,25 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 
 .tabla td {
 	padding: 5px;
-	font-size: 16px;
+	/*font-size: 16px;*/
 	/*background-color: #83aec0;*/
-	border-radius: 4px;
-	background-image: url(../images/fondo_tr.png);
+	/*border-radius: 4px;
 	background-repeat: repeat-x;
-	color: #000000;
+	color: #FFFFFF;
 	border-right-color: #999999;
 	font-family: "“Trebuchet MS”", Arial;	/*text-transform: uppercase;*/
+	/*background-color: #99FF00;*/
+	
+}
+
+.tabla tr:nth-child(odd){
+	background-color: #DDD;
+   color:#777;
+}
+
+.tabla tr:nth-child(even) {
+	background-color: #999;
+	color:#FFF;
 }
 
 
@@ -217,7 +228,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 	margin-top: 10px;
 	margin-right: 110px;
 	margin-bottom: 110px;
-	margin-left: 110px;
+	margin-left: 90px;
 }
 
 .logo_farmastock{
@@ -237,3 +248,18 @@ top: 0%;
 .iconos2{
 		margin: 0px 0px 0px 120px;
 	}
+	
+	
+.boton_agregar_producto{
+	position: relative;
+
+margin: 0px 0px 0px 500px;
+	
+}
+
+.boton_agregar_proveedor{
+	position: relative;
+
+margin: 0px 0px 0px 620px;
+	
+}
