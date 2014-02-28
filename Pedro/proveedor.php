@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
@@ -44,14 +45,14 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <div class="iconos1">
-   <img src="images/bayer.jpeg" width="100" height="100" alt="Bayer" />
-   <span class="iconos2"><img src="images/durex.jpeg" width="100" height="100" alt="Durex" /></span><img class="iconos2" src="images/canifarma.jpeg" width="100" height="100" alt="Canifarma" />
-   <img class="iconos2" src="images/europharm.jpeg" width="100" height="100" alt="Europharm" /></div>
+   <img src="images/bayer.jpeg" width="80" height="80" alt="Bayer" />
+   <span class="iconos2"><img src="images/durex.jpeg" width="80" height="80" alt="Durex" /></span><img class="iconos2" src="images/canifarma.jpeg" width="80" height="80" alt="Canifarma" />
+   <img class="iconos2" src="images/europharm.jpeg" width="80" height="80" alt="Europharm" /></div>
   
   <div class="tabla_proveedores">
-<p>Datos de nuestros Proveedores:</p>
+<h3>Datos de nuestros Proveedores:</h3>
    <p>&nbsp;</p>
-  
+ <div class="boton_agregar_proveedor"> <a href="anadir_proveedor.php"> <img src="images/icono_anadir_contacto.png" width=36 height=36 alt="modificar" title="Agregar Proveedor" /> </a> </div> 
 <?php
 // Conectando, seleccionando la base de datos
 $link = mysql_connect('127.0.0.1', 'root', '')
@@ -64,9 +65,9 @@ $query = 'SELECT * FROM proveedor';
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 // Imprimir los resultados en HTML
-echo "<table border=1>\n";
+echo "<table border=1 class=\"tabla\">\n";
 
-echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Teléfono</td><td>Email</td><td><a href=\"anadir_proveedor.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a></td></tr>";
+echo "<tr><td>Id Proveedor</td><td> Proveedor</td><td>Ciudad</td><td>Teléfono</td><td>Email</td></tr>";
 
 
 
@@ -77,8 +78,14 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	foreach ($line as $col_value) {
         echo "\t\t<td>$col_value</td>\n";
     }
+
 	 echo "<td> <a href=\"modificar_proveedor.php?id_proveedor=$id_proveed\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
+	 
 	 echo "<td> <a href=\"borrar_proveedor.php?id_proveedor=$id_proveed\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+   
+
+	 
+
     echo "\t</tr>\n";
 }
 echo "</table>\n";

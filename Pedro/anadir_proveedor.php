@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">

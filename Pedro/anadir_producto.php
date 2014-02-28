@@ -20,6 +20,7 @@
 </head>
 
 <body>
+
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
@@ -66,6 +67,9 @@ echo "Producto añadido";
 echo "<br>";
 echo "<br>";
 echo "<a href=\"almacen.php\">Volver Almacén</a>";
+echo "&nbsp";
+echo "&nbsp";
+echo "<a href=\"anadir_producto.php\">Añadir otro producto</a>";
 echo "</fieldset>";
           } else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php >";
