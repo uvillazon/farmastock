@@ -63,52 +63,37 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 // Cerrar la conexi�n
 		mysql_close($link);
 ?>
-
-
-
-
-
 <form action=anadir_venta.php method="POST">
 
-ID EMPLEADO:     
-<input type="text" name="nombre" value="<?php echo  $_SESSION['login_usuario'];?>" /> <br /><br />
 
 PRODUCTO: 
 
 <?php echo "<select name='select1'>";
+
 while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fila de resultados .
 {
     echo "<option value='".$fila['nombre']."'>"   .$fila['nombre']."   </option>";
 }
 echo "</select>";
 
-
 ?>
 <br /><br />
-
-
 
 CANTIDAD:
 <input type="text" name="cantidad" />
 <br /><br />
 
-PRECIO:
-<input type="text" name="precio" />
-<br />
-<input type="submit" value="Realizar venta" />
-
-</form>
+PRECIO: 
 <?php 
- $link = mysql_connect('127.0.0.1', 'root', '')
-    or die('No se pudo conectar: ' . mysql_error());
-echo '';
-mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
 
-//$query = "INSERT INTO `venta`(`id_empleado`, `id_producto`, `fecha`, `cantidad`, `nombre_prod`, `precio_unidad`) VALUES ,,,,,";
-//$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+$query="SELECT precio_unidad FROM producto WHERE nombre=$fila'[nombre]'";
+echo "<input type='text' name='precio'/>";
+echo $query;
+
 ?>
+</form>
 
-  <!-- InstanceEndEditable -->
+ <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
     <?php include("includes/pie.php");?>
