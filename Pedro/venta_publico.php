@@ -47,7 +47,18 @@
  <p> Esto es venta al publico </p>
  <br />
 
-
+<?php 
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $nombre=$_POST['nombre'];
+              $precio=$_POST['precio_unid'];
+			  
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+		  }
+?>
 <?php 
 
 
@@ -66,18 +77,13 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
  		$consulta_mysql = "select * from producto";
   		$resultado_consulta_mysql=mysql_query ($consulta_mysql, $link);
  
-// Cerrar la conexión
-		mysql_close($link);
+
 ?>
-
-
-
 
 
 <form action=anadir_venta.php method="POST">
 
-ID EMPLEADO:     
-<input type="text" name="nombre" value="<?php echo  $_SESSION['login_usuario'];?>" /> <br /><br />
+
 
 PRODUCTO: 
 
@@ -90,6 +96,8 @@ while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fil
 }
 echo "</select>";
 
+$consulta = "select stock from producto where id_producto = $_POST'['select1']";
+var_dump ($_POST); 
 ?>
 <br /><br />
 
@@ -101,7 +109,15 @@ CANTIDAD:
 
 </form>
 
+<?php
 
+
+
+
+
+// Cerrar la conexión
+		mysql_close($link);
+?>
 
 
 

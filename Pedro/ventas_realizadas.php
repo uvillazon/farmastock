@@ -21,6 +21,7 @@
 </head>
 
 <body>
+
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
@@ -43,6 +44,51 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
  <p>Esto es ventas realizadas </p>
+ 
+ 
+ <?php
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+
+// Realizar una consulta MySQL
+$query = 'SELECT * FROM venta';
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
+echo "<table border=0 class=\"tabla\" >\n";
+echo "<tr> <td>Id Empleado</td> <td> Cantidad</td> <td>Fecha</td> </tr>";
+
+//Imprimir los resultados html
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+   
+    echo "\t<tr>\n";
+	$id= $line["id_producto"];
+	
+    foreach ($line as $col_value) {
+       
+	    echo "\t\t<td>$col_value</td> \n";
+		
+    }
+    
+	echo "";
+	
+	echo "\t</tr>\n";
+	 
+	
+}
+
+
+echo "</table>\n";
+
+// Liberar resultados
+mysql_free_result($result);
+
+// Cerrar la conexión
+mysql_close($link);
+?>
  
   <!-- InstanceEndEditable -->
   </div>
