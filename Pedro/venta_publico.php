@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Farmastock | Aplicación web stock farmacia</title>
+
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -56,6 +57,11 @@ $link = mysql_connect('127.0.0.1', 'root', '')     or die('No se pudo conectar: 
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
 
+
+
+ 
+ 
+
 // sentencia SQL para la SELECCION de ese producto.
  		$consulta_mysql = "select * from producto";
   		$resultado_consulta_mysql=mysql_query ($consulta_mysql, $link);
@@ -75,25 +81,35 @@ ID EMPLEADO:
 
 PRODUCTO: 
 
-<?php echo "<select name='select1'>";
+<?php echo "<select name='select1'>" ; 
+$precios=array();
 while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fila de resultados .
 {
-    echo "<option value='".$fila['nombre']."'>"   .$fila['nombre']."   </option>";
+    echo "<option value='".$fila['id_producto']."'>"   .$fila['nombre']."---PVP:".$fila["precio_unid"]."</option>";
+	$precios[$fila['id_producto']] = $fila["precio_unid"];
 }
 echo "</select>";
-
 
 ?>
 <br /><br />
 
-
-
+<br />
 CANTIDAD:
 <input type="text" name="cantidad" />
 <br />
 <input type="submit" value="Realizar venta" />
 
 </form>
+
+
+
+
+
+
+
+
+	
+	
 
 
  
