@@ -1,3 +1,7 @@
+<?php include("includes/sesiones.php"); ?>
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -17,20 +21,17 @@
 </head>
 
 <body>
-
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
   <div class="header">
   <?php include("includes/cabecera.php"); ?>
-    <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+     
+     </div>
+     
+       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            <?php include("includes/logo_logout.php"); ?>
        <!-- InstanceEndEditable --></div>
-       
-     
-  </div>
-     
-     
   
   
   
@@ -41,9 +42,14 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es venta</p>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <center>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><a href="venta_publico.php">Venta Mostrador </a></p>
+  </center> 
+  <br /><br /><br />
+ <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
