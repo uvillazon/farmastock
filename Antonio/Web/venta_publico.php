@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Farmastock | Aplicaci�n web stock farmacia</title>
+
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -43,57 +44,72 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
- <p> Esto es venta al publico </p>
- <br />
-
+  <br />
 
 <?php 
-
+          require_once('Connections/bd_farmastock.php');
+          if (!empty($_POST)){
+              $id_producto=$_POST['select1'];
+              $cantidad=$_POST['cantidad'];
+              $link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+$id_empleado=$_SESSION;
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+$query="SELECT stock FROM producto WHERE id_producto=$id_producto";
+$stock = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+var_dump($stock);
+    if ($stock<$cantidad){
+$query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$stock', '$fecha')";
+echo "<fieldset>";
+echo "Producto vendido";
+echo "<br>";
+echo "<br>";
+echo "<a href=\"venta_publico.php\">Volver Venta Publico</a>";
+echo "</fieldset>";   
+    }else{
+echo "<fieldset>";
+echo "No disponemos de la suficiente cantidad para su venta";
+echo "<br>";
+echo "<br>";
+echo "<a href=\"venta_publico.php\">Volver Venta Publico</a>";
+echo "</fieldset>";   
+}
+}else{
 
 
 // Conectando, seleccionando la base de datos
 $link = mysql_connect('127.0.0.1', 'root', '')     or die('No se pudo conectar: ' . mysql_error());
 echo '';
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-
 // sentencia SQL para la SELECCION de ese producto.
  		$consulta_mysql = "select * from producto";
   		$resultado_consulta_mysql=mysql_query ($consulta_mysql, $link);
- 
-// Cerrar la conexi�n
-		mysql_close($link);
-?>
-<form action=anadir_venta.php method="POST">
 
-
-PRODUCTO: 
-
-<?php echo "<select name='select1'>";
-
+  echo "<form action=venta_publico.php method='POST'>";
+echo "PRODUCTO: ";
+echo "<select name='select1'>" ; 
+$precios=array();
 while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fila de resultados .
 {
-    echo "<option value='".$fila['nombre']."'>"   .$fila['nombre']."   </option>";
+    echo "<option value='".$fila['id_producto']."'>"   .$fila['nombre']."---PVP:".$fila["precio_unid"]."</option>";
+	$precios[$fila['id_producto']] = $fila["precio_unid"];
 }
 echo "</select>";
+//$consulta = "select stock from producto where id_producto = $_POST'['select1']";
+echo "<br /><br />";
+echo "<br />";
+echo "CANTIDAD:";
+echo "<input type='text' name='cantidad' />";
+echo "<br />";
+echo "<input type='submit' value='Realizar venta' />";
 
+echo "</form>";
+// Cerrar la conexi�n
+		mysql_close($link);
+}
 ?>
-<br /><br />
-
-CANTIDAD:
-<input type="text" name="cantidad" />
-<br /><br />
-
-PRECIO: 
-<?php 
-
-$query="SELECT precio_unidad FROM producto WHERE nombre=$fila'[nombre]'";
-echo "<input type='text' name='precio'/>";
-echo $query;
-
-?>
-</form>
-
- <!-- InstanceEndEditable -->
+  <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
     <?php include("includes/pie.php");?>
