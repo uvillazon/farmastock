@@ -62,6 +62,7 @@ $m=$hoy['mon'];
 $y=$hoy['year'];
     if ($stock>$cantidad){
 $query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$stock', '$y-$m-$d')";
+var_dump($query);
 echo "<fieldset>";
 echo "Producto vendido";
 echo "<br>";
