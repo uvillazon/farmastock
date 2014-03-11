@@ -1,7 +1,4 @@
 <?php include("includes/sesiones.php"); ?>
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -45,7 +42,6 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
   <br />
-
 <?php 
           require_once('Connections/bd_farmastock.php');
           if (!empty($_POST)){
@@ -54,12 +50,18 @@
               $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
-$id_empleado=$_SESSION;
+$id_empleado=$_SESSION['id_empleado'];
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
 $query="SELECT stock FROM producto WHERE id_producto=$id_producto";
-$stock = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-    if ($stock<$cantidad){
-$query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$stock', '$fecha')";
+$resultado = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+$row=mysql_fetch_array($resultado);
+$stock=$row['stock'];
+$hoy = getdate();
+$d=$hoy['mday'];
+$m=$hoy['mon'];
+$y=$hoy['year'];
+    if ($stock>$cantidad){
+$query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$stock', '$y-$m-$d')";
 echo "<fieldset>";
 echo "Producto vendido";
 echo "<br>";
