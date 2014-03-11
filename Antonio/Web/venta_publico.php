@@ -58,7 +58,6 @@ $id_empleado=$_SESSION;
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
 $query="SELECT stock FROM producto WHERE id_producto=$id_producto";
 $stock = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-var_dump($stock);
     if ($stock<$cantidad){
 $query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$stock', '$fecha')";
 echo "<fieldset>";
@@ -76,8 +75,6 @@ echo "<a href=\"venta_publico.php\">Volver Venta Publico</a>";
 echo "</fieldset>";   
 }
 }else{
-
-
 // Conectando, seleccionando la base de datos
 $link = mysql_connect('127.0.0.1', 'root', '')     or die('No se pudo conectar: ' . mysql_error());
 echo '';
