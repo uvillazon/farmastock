@@ -131,7 +131,8 @@ inicio_sesion {
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
-  <div class="header">
+  
+     <div class="header">
   <?php include("includes/cabecera.php"); ?>
     <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            
@@ -139,7 +140,6 @@ inicio_sesion {
        
      
   </div>
-     
      
   
   
