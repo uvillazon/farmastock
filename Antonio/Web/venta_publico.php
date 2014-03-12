@@ -60,10 +60,11 @@ $hoy = getdate();
 $d=$hoy['mday'];
 $m=$hoy['mon'];
 $y=$hoy['year'];
-    if ($stock>$cantidad){
-$query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$stock', '$y-$m-$d')";
-var_dump($query);
-echo "<fieldset>";
+    if ($stock>=$cantidad){
+$query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$cantidad', '$y-$m-$d')";
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());echo "<fieldset>";
+$query2= "UPDATE `producto` SET `stock`=$stock-$cantidad WHERE id_producto=$id_producto";
+$result2=  mysql_query($query2)or die('Consulta fallida: ' . mysql_error());
 echo "Producto vendido";
 echo "<br>";
 echo "<br>";

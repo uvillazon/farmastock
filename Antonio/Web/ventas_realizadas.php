@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -43,7 +43,6 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
- <p>Esto es ventas realizadas </p>
  
  
  <?php
@@ -55,11 +54,11 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 
 
 // Realizar una consulta MySQL
-$query = 'SELECT * FROM venta';
+$query = 'SELECT * FROM ventas_realizadas';
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<table border=0 class=\"tabla\" >\n";
-echo "<tr> <td>Id Empleado</td> <td> Cantidad</td> <td>Fecha</td> </tr>";
+echo "<tr><td>Id Producto</td> <td>Id Empleado</td> <td> Cantidad</td> <td>Fecha</td> </tr>";
 
 //Imprimir los resultados html
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
@@ -86,7 +85,7 @@ echo "</table>\n";
 // Liberar resultados
 mysql_free_result($result);
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 ?>
  
