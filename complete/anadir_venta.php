@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -64,10 +64,10 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 $query2 = 'SELECT * FROM venta where id_producto = id_producto';
 
 echo "<fieldset>";
-echo "Producto añadido en ventas";
+echo "Producto aï¿½adido en ventas";
 echo "<br>";
 echo "<br>";
-echo "<a href=\"venta_publico.php\">Volver a venta al público</a>";
+echo "<a href=\"venta_publico.php\">Volver a venta al pï¿½blico</a>";
 echo "</fieldset>";
           } else{
               echo "<form id=form name=form1 method=post action=anadir_venta.php >";
@@ -80,15 +80,18 @@ echo "</fieldset>";
   echo "</div>";
   
   echo "<div>";
+   echo "<label for=nombre>Nombre:</label>";
+   mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+   $ssql = "select * from productos where nombre=" . $nombre;
+      echo "<option value='$nombre' selected='selected'>'$nombre'</option>";       
+  echo "</select>";
+  echo "</div>";
+  
+  echo "<div>";
    echo "<label for=cantidad>Cantidad:</label>";
    echo "<input type=text name=cantidad id=cantidad size=35 />";
   echo "</div>";
-     
-	  echo "<div>";
-    echo "<label for=id_producto>Id Producto:</label>";
-   echo "<input type=text name=id_producto id=id_producto size=35 />";
-  echo "</div>";
-  
+    
    echo "<div>";
     echo "<label for=precio_unidad>Precio Unid:</label>";
    echo "<input type=text name=precio_unidad id=precio_unidad size=35 />";
@@ -97,21 +100,8 @@ echo "</fieldset>";
 echo "<input id=enviar type=submit value='Realizar la venta'/>";
 echo "</fieldset>";
   echo "</form>";   
-        
-	
-
-		 
-		 
-		 
 		  }
           ?>
-          
-     
-          
-          
-          
-    
-
 <style type="text/css"> 
     fieldset{
         
@@ -124,7 +114,7 @@ echo "</fieldset>";
     margin: .4em 0; //margen para que no esten pegados.
 }
 div label {
-  width: 10%; 
+  width: 15%; 
   float: left;
 }
     input:focus { //estilos al hacer focus

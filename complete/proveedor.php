@@ -81,7 +81,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 
 	 echo "<td> <a href=\"modificar_proveedor.php?id_proveedor=$id_proveed\"> <img src=\"images/icono_modificar.gif\" width=12 height=12 alt=\"modificar\" title=\"Modificar\" /> </a> </td>";
 	 
-	 echo "<td> <a href=\"borrar_proveedor.php?id_proveedor=$id_proveed\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
+	 echo "<td> <a href=\"borrar_proveedor.php?id_proveedor=$id_proveed\" onclick=\"return confirmar()\"> <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" /> </a></td>";
    
 
 	 
@@ -96,6 +96,18 @@ mysql_free_result($result);
 // Cerrar la conexión
 mysql_close($link);
 ?>
+<!-- SCRIPT DE CONFIRMACION ELIMINACION DE PRODUCTOS,(va asociado al onclick del href borrar_producto de arriba(onclick=\"return confirmar() )  ) -->
+<script language="JavaScript"> 
+function confirmar(url){ 
+if (!confirm("¿Está seguro de que desea eliminar el Proveedor ?")) { 
+return false; 
+} 
+else { 
+document.location= url; 
+return true; 
+} 
+} 
+</script> 
 </div>
   <!-- InstanceEndEditable -->
   </div>
