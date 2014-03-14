@@ -55,10 +55,7 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 
 /* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
 .header {
-	float:left;
-	width: 960px;
-	margin: 0px auto;
-
+	
 }
 
 /* ~~ Estas son las columnas para el diseño. ~~ 
@@ -83,7 +80,7 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 	box-shadow:inset 0 0 8px #dcddde;
 	-moz-box-shadow:inset 0 0 8px #dcddde;
 	-webkit-box-shadow:inset 0 0 8px #dcddde;
-	margin-top: 30px;
+	margin-top: 120px;
 	margin-right: 10px;
 	padding: 10px;
 }
@@ -95,7 +92,7 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
-	margin-top: 30px;
+	margin-top: 120px;
 	padding-top: 20px;
 	margin-bottom: 10px;
 	padding-right: 10px;
@@ -188,52 +185,98 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 }
 
 .logo_logout{
-	
-	/*margin-right: 110%;
-	margin-bottom: 110%;*/
-	float:right;
-
-	padding-top: 20px;
-	
+	position:absolute;
+	top:2%;
+	left:90%;
 	}
 
 .tabla_productos{
-	margin: 10px 0px 10px 200px;
+	margin: 0px 0px 0px 120px;
+	
+	
 		
 }
 
+
+.tabla td {
+	padding: 7px;
+	/*font-size: 16px;*/
+	/*background-color: #83aec0;*/
+	/*border-radius: 4px;
+	background-repeat: repeat-x;
+	color: #FFFFFF;
+	border-right-color: #999999;
+	font-family: "“Trebuchet MS”", Arial;	/*text-transform: uppercase;*/
+	/*background-color: #99FF00;*/
+	
+}
+
+
+
+.tabla tr:nth-child(odd){
+	background-color: #DDD;
+   color:#777;
+}
+
+.tabla tr:nth-child(even) {
+	background-color: #999;
+	color:#FFF;
+}
+
+
+
+
+
+
 .tabla_proveedores{
 	margin-top: 10px;
-	margin-right: 110px;
+	margin-right: 100px;
 	margin-bottom: 110px;
-	margin-left: 110px;
+	margin-left: 80px;
+}
+
+.tabla_ventas_realizadas{
+	margin-top: 55px;
+	margin-right: 100px;
+	margin-bottom: 110px;
+	margin-left: 130px;
 }
 
 .logo_farmastock{
-float:left;
+	position: absolute;
+top: 0%;
 
 }
-<<<<<<< .mine
 
-.sesion{
-	position:fixed;
-	top:13%;
-	left:85%;
-}
-	
-
-	
-#usuario {
-	clear:right;
-	float:right;
-	margin-top: 5px;
-}
-
-#puerta {
-	float:right;
-	
-}
-.iconos{
-		margin: 0px 0px 0px 80px;
-
+.sesiones{
+	position:absolute;
+	top:2%;
+	left:90%;
 	}
+	
+	
+	
+.iconos2{
+		margin: 0px 0px 0px 120px;
+	}
+	
+	
+.boton_agregar_producto{
+	position: relative;
+
+margin: 0px 0px 0px 500px;
+	
+}
+
+.boton_agregar_proveedor{
+	position: relative;
+
+margin: 0px 0px 0px 620px;
+	
+}
+
+#usuario {
+	position: absolute;
+    top:11%;
+	left:87%;;
+}
