@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
@@ -43,6 +42,12 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
  <div class="tabla_productos">
+   
+   
+
+   
+   
+   
    <p>&nbsp;</p>
    <p>&nbsp;</p>
  <div class="boton_agregar_producto"> <a href="anadir_producto.php"> <img src="images/icono_anadir_contacto.png" width=36 height=36 alt="modificar" title="Agregar Producto" /> </a> </div> 
