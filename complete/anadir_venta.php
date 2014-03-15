@@ -64,7 +64,7 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 $query2 = 'SELECT * FROM venta where id_producto = id_producto';
 
 echo "<fieldset>";
-echo "Producto aï¿½adido en ventas";
+echo "Producto añadido en ventas";
 echo "<br>";
 echo "<br>";
 echo "<a href=\"venta_publico.php\">Volver a venta al pï¿½blico</a>";
