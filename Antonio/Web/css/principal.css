@@ -11,6 +11,30 @@ body {
 	font-size: 14px;
 }
 
+
+.myButton {
+	background-color:#768d87;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#fafafa;
+	font-family:arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b665e;
+}
+.myButton:hover {
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
 /* ~~ Selectores de elemento/etiqueta ~~ */
 ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
 	padding: 0;
@@ -36,7 +60,7 @@ a img { /* este selector elimina el borde azul predeterminado que se muestra en 
 /* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
 a:link {
 	color: #42413C;
-	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+        text-decoration:none;
 }
 a:visited {
 	color: #6E6C64;
@@ -191,7 +215,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 	}
 
 .tabla_productos{
-	margin: 10px 0px 0px 140px;
+	margin: 0px 0px 0px 120px;
 	
 	
 		
@@ -199,25 +223,47 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fon
 
 
 .tabla td {
-	padding: 5px;
-	font-size: 16px;
+	padding: 7px;
+	/*font-size: 16px;*/
 	/*background-color: #83aec0;*/
-	border-radius: 4px;
-	background-image: url(../images/fondo_tr.png);
+	/*border-radius: 4px;
 	background-repeat: repeat-x;
-	color: #000000;
+	color: #FFFFFF;
 	border-right-color: #999999;
 	font-family: "“Trebuchet MS”", Arial;	/*text-transform: uppercase;*/
+	/*background-color: #99FF00;*/
+	
 }
+
+
+
+.tabla tr:nth-child(odd){
+	background-color: #DDD;
+   color:#777;
+}
+
+.tabla tr:nth-child(even) {
+	background-color: #999;
+	color:#FFF;
+}
+
+
 
 
 
 
 .tabla_proveedores{
 	margin-top: 10px;
-	margin-right: 110px;
+	margin-right: 100px;
 	margin-bottom: 110px;
-	margin-left: 110px;
+	margin-left: 80px;
+}
+
+.tabla_ventas_realizadas{
+	margin-top: 55px;
+	margin-right: 100px;
+	margin-bottom: 110px;
+	margin-left: 130px;
 }
 
 .logo_farmastock{
@@ -237,3 +283,24 @@ top: 0%;
 .iconos2{
 		margin: 0px 0px 0px 120px;
 	}
+	
+	
+.boton_agregar_producto{
+	position: relative;
+
+margin: 0px 0px 0px 500px;
+	
+}
+
+.boton_agregar_proveedor{
+	position: relative;
+
+margin: 0px 0px 0px 620px;
+	
+}
+
+#usuario {
+	position: absolute;
+    top:11%;
+	left:87%;;
+}

@@ -43,7 +43,6 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
  <div class="tabla_productos">
-   <p>Productos que se encuentran en el almacen:</p>
    <p>&nbsp;</p>
    <p>&nbsp;</p>
  <div class="boton_agregar_producto"> <a href="anadir_producto.php"> <img src="images/icono_anadir_contacto.png" width=36 height=36 alt="modificar" title="Agregar Producto" /> </a> </div> 
@@ -91,14 +90,14 @@ echo "</table>\n";
 // Liberar resultados
 mysql_free_result($result);
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 ?>
 
 <!-- SCRIPT DE CONFIRMACION ELIMINACION DE PRODUCTOS,(va asociado al onclick del href borrar_producto de arriba(onclick=\"return confirmar() )  ) -->
 <script language="JavaScript"> 
 function confirmar(url){ 
-if (!confirm("¿Está seguro de que desea eliminar el Producto ?")) { 
+if (!confirm("ï¿½Estï¿½ seguro de que desea eliminar el Producto ?")) { 
 return false; 
 } 
 else { 

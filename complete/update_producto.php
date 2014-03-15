@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacuten web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -60,13 +60,13 @@ $ssql .= "where id_producto = " . $_POST["id_producto"];
 
 //ejecuto la sentencia de update me devuelve un si o un no ejecutada la sentencia
 if (mysql_query ($ssql) ){
-	echo "Producto actualizado con éxito";
+	echo "Producto actualizado con ï¿½xito";
 }else{
 	echo "Hubo un error al actualizar el producto";
 }
 
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 
  ?>

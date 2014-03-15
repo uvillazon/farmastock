@@ -95,7 +95,7 @@ if (isset($_POST['campo_usuario'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacuten web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <style type="text/css">
@@ -143,7 +143,7 @@ inicio_sesion {
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
    
     
-    <p>Inicio de Sessi�n</p>
+    <p>Inicio de Sesi&oacuten</p>
   <img src="images/login.jpg" width="121" height="161" alt="login" /> <!-- InstanceEndEditable --></div>
   
   
@@ -162,7 +162,7 @@ inicio_sesion {
           </p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
-          <p>Contrase�a: </p>
+          <p>Contrase&ntildea: </p>
           <p>
             <label for="textfield8"></label>
             <input type="password" name="textfield2" id="textfield8" />
