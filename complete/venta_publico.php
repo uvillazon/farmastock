@@ -86,7 +86,8 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 // sentencia SQL para la SELECCION de ese producto.
  		$consulta_mysql = "select * from producto";
   		$resultado_consulta_mysql=mysql_query ($consulta_mysql, $link);
-
+echo "<fieldset>";
+  echo "<legend>Realizar una venta</legend>";
   echo "<form action=venta_publico.php method='POST'>";
 echo "PRODUCTO: ";
 echo "<select name='select1'>" ; 
@@ -104,12 +105,14 @@ echo "CANTIDAD:";
 echo "<input type='text' name='cantidad' />";
 echo "<br />";
 echo "<input type='submit' value='Realizar venta' />";
-
 echo "</form>";
+echo "</fieldset>";
+
 // Cerrar la conexi�n
 		mysql_close($link);
 }
 ?>
+  
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
@@ -118,3 +121,27 @@ echo "</form>";
   <!-- end .container --></div>
 </body>
 <!-- InstanceEnd --></html>
+<style type="text/css"> 
+fieldset{
+        
+    margin-top: -33px;
+    }
+    form{
+        margin-top: 0px; 
+    }
+ div {
+    margin: .4em 0; //margen para que no esten pegados.
+}
+div label {
+  width: 10%; 
+  float: left;
+}
+    input:focus { //estilos al hacer focus
+  border: 2px solid #000;
+  background: #A9F5A9; 
+}
+    enviar{
+      background-color:#A9F5A9;
+
+    }
+</style>

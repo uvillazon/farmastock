@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -46,7 +46,7 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <p><a href="venta_publico.php">Venta Mostrador </a></p>
+    <p><a href="venta_publico.php" class="myButton">Venta Publico</a></p>
   </center> 
   <br /><br /><br />
  <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
