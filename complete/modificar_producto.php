@@ -69,7 +69,7 @@ mysql_close($link);
 
  ?>
  
- <form action="update.php" method="post">
+ <form action="update_producto.php" method="post">
  	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
  	Producto:
     <br />
@@ -79,6 +79,10 @@ mysql_close($link);
     Cantidad:
     <br />
     <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
+     <br />
+      Precio Unidad:
+	  <br />
+	  <input type="text" name="precio_unid" value="<?php echo $line->precio_unid;?>" />
      <br />
       <br />
       <input type="submit" value="Modificar" />
