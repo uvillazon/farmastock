@@ -1,14 +1,13 @@
 <div id="menu">
 <ul>
-    <li class="has-sub"><a title="" href="inicio.php">Inicio</a>
+            <li><a title="" href="inicio.php">Inicio</a></li>
         
-            <li class="has-sub"><a title="almacen.php" href="almacen.php">Almacen</a>
-               
-             </li>
+            <li>  <a title="" href="almacen.php">Almacen</a>  </li>  
+    
              <li><a title="" href="proveedor.php">Proveedor</a></li>
              <li><a title="" href="">Venta</a>
              
-             <ul>
+                <ul>
                     <li><a title="" href="venta_publico.php">Venta Mostrador</a></li>
                     <li><a title="" href="ventas_realizadas.php">Ventas realizadas</a></li>
                     
