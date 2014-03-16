@@ -64,7 +64,7 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 $query2 = 'SELECT * FROM venta where id_producto = id_producto';
 
 echo "<fieldset>";
-echo "Producto añadido en ventas";
+echo "Producto aï¿½adido en ventas";
 echo "<br>";
 echo "<br>";
 echo "<a href=\"venta_publico.php\">Volver a venta al pï¿½blico</a>";
@@ -119,7 +119,7 @@ div label {
 }
     input:focus { //estilos al hacer focus
   border: 2px solid #000;
-  background: #A9F5A9; 
+  background: #BDBDBD;
 }
     enviar{
       background-color:#A9F5A9;
