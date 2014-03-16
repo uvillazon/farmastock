@@ -298,22 +298,18 @@ margin: 0px 0px 0px 620px;
     border: 0; 
 }
 
-#menu ul, li {
-      list-style: none;
-     /*margin: 0;
-      padding: 0; */
-}
+
 
 #menu ul {
-      position: relative;
+      position: relative; /*podemos utilizar top, bottom, left y right para mover el elemento con relación a la posición en la que                           aparecería normalmente en el documento*/
       
 }
 
 #menu ul li {
     float: left;
    /* min-height: 1px;*/
-    line-height: 1em;
-    vertical-align: middle; 
+    /*line-height: 1em;*/
+    /*vertical-align: middle; */
 }
 
 #menu ul li.hover,
@@ -324,47 +320,38 @@ margin: 0px 0px 0px 620px;
 }
 
 #menu ul ul {
-  visibility: hidden;
+  visibility: hidden; /*oculta las ul que en este caso es venta mostrador y ventas realizadas pero sigue conservando el espacio que                        ocupaba, si se quita se verian las opciones por defecto */
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 598;
-  width: 110%; 
+  width: 110%; /*ancho del submenu*/
 }
 
-/*#menu ul ul li {
-  float: none; 
-}*/
+
 
 #menu ul li:hover > ul {
-  visibility: visible; 
+  visibility: visible; /* cuando pasamos el cursor por las li se muestran las li que contienen ese ul (pasamos el cursor por venta y                        muestra venta mostrador y ventas realizadas*/
 }
 
 #menu ul ul {
   top: 0;
-  left: 80%; 
+  left: 80%; /*posiciona hacia la izquierda las ul que estan dentro de otra ul*/
 }
 
-/*#menu ul li {
-  float: none; 
-}*/
+
 
 #menu {
-  width: 120px; 
+  width: 120px; /*ancho de la capa menu*/
 }
 
-#menu span, #menu a {
-    display: inline-block;
+#menu span, #menu a { /*span permite agrupar varios elementos en línea seguidos dentro de un mismo bloque*/
+    display: inline-block; /*Display establece el tipo de caja: inline-block crea una especie de cuadricula, se crea bloques en la 			                            misma línea de flujo,*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     text-decoration: none; 
 }
 
-/*#menu:after, #menu ul:after {
-    content: '';
-    display: block;
-    clear: both; 
-}*/
+
 
 #menu ul, #menu li {
     width: 100%; 
@@ -379,7 +366,7 @@ margin: 0px 0px 0px 620px;
     color: #666666;
     line-height: 160%;
     padding: 11px 28px 11px 28px;
-    width: 144px; 
+    width: 2px; 
 }
 #menu ul ul li {
     background: #f6f6f6; 
@@ -396,24 +383,12 @@ margin: 0px 0px 0px 620px;
 #menu ul ul li ul li:hover {
     background: #b7b7b7; 
 }
-#menu .has-sub {
-    position: relative; 
+
+
+
+.tit_stoc_alma {
+	color: #093;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 18px;
+	
 }
-
-/*#menu .has-sub:after, #menu .has-sub > ul > .has-sub:hover:after {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 9px;
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    margin-top: -5px;
-    background-image: url(right.png);
-}*/
-/*#menu .has-sub > ul > .has-sub:after, #menu .has-sub:hover:after {
-    background-image: url(right.png); 
-}*/
-
-
-
