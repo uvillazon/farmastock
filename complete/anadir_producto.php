@@ -1,6 +1,4 @@
 <?php include("includes/sesiones.php"); ?>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -9,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -62,10 +60,10 @@ $query = "INSERT INTO `producto`(`nombre`, `stock`, `precio_unid`) VALUES ('$nom
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
-echo "Producto añadido";
+echo "Producto aï¿½adido";
 echo "<br>";
 echo "<br>";
-echo "<a href=\"almacen.php\">Volver Almacén</a>";
+echo "<a href=\"almacen.php\">Volver Almacï¿½n</a>";
 echo "</fieldset>";
           } else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php >";
@@ -87,26 +85,14 @@ echo "</fieldset>";
   echo "</div>";
 echo "<input id=enviar type=submit value='Dar de alta'/>";
 echo "</fieldset>";
-  echo "</form>";   
-        
-	
-
-		 
-		 
-		 
+  echo "</form>";   		 
 		  }
           ?>
-          
-     
-          
-          
-          
-    
 
 <style type="text/css"> 
     fieldset{
         
-    margin-top: -50px;
+    margin-top: -33px;
     }
     form{
         margin-top: -50px; 
@@ -120,8 +106,8 @@ div label {
 }
     input:focus { //estilos al hacer focus
   border: 2px solid #000;
-  background: #A9F5A9; 
-}
+background: #BDBDBD;
+    }
     enviar{
       background-color:#A9F5A9;
 

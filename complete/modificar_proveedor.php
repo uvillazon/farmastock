@@ -70,6 +70,8 @@ mysql_close($link);
  ?>
  
  <form action="update_proveedor.php" method="post">
+     <fieldset>
+ <legend>Modificar proveedor</legend>
  	<input type="hidden" name="id_proveedor" value="<?php echo $id_proveedor;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
  	Proveedor:
     <br />
@@ -94,7 +96,8 @@ mysql_close($link);
      <br />
       <br />
       <input type="submit" value="Modificar" />
-     </form>
+     </fieldset>
+      </form>
      
      <br />
      <br />
@@ -107,3 +110,26 @@ mysql_close($link);
   <!-- end .container --></div>
 </body>
 <!-- InstanceEnd --></html>
+<style type="text/css"> 
+    fieldset{
+        
+    margin-top: 35px;
+    }
+    form{
+        margin-top: -50px; 
+    }
+ div {
+    margin: .4em 0; //margen para que no esten pegados.
+}
+div label {
+  width: 10%; 
+  float: left;
+}
+    input:focus { //estilos al hacer focus
+  border: 2px solid #000;
+background: #BDBDBD;
+    }
+    enviar{
+      background-color:#A9F5A9;
+
+    }

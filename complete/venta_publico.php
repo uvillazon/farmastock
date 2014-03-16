@@ -124,7 +124,7 @@ echo "</fieldset>";
 </body>
 <!-- InstanceEnd --></html>
 <style type="text/css"> 
-fieldset{
+    fieldset{
         
     margin-top: -33px;
     }
@@ -140,10 +140,9 @@ div label {
 }
     input:focus { //estilos al hacer focus
   border: 2px solid #000;
-  background: #A9F5A9; 
-}
+background: #BDBDBD;
+    }
     enviar{
       background-color:#A9F5A9;
 
     }
-</style>
