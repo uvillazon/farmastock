@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -58,7 +58,7 @@ $query = 'SELECT * FROM ventas_realizadas';
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<table border=0 class=\"tabla\" >\n";
-echo "<tr><td>Id Producto</td> <td>Id Empleado</td> <td> Cantidad</td> <td>Fecha</td> </tr>";
+echo "<tr><td>Nombre Producto</td><td>Id Producto</td> <td>Id Empleado</td> <td> Cantidad</td> <td>Fecha</td> </tr>";
 
 //Imprimir los resultados html
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {

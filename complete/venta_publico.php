@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
@@ -52,16 +52,18 @@
 echo '';
 $id_empleado=$_SESSION['id_empleado'];
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-$query="SELECT stock FROM producto WHERE id_producto=$id_producto";
+$query="SELECT nombre,stock FROM producto WHERE id_producto=$id_producto";
 $resultado = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 $row=mysql_fetch_array($resultado);
+$nombre=$row['nombre'];
+var_dump($nombre);
 $stock=$row['stock'];
 $hoy = getdate();
 $d=$hoy['mday'];
 $m=$hoy['mon'];
 $y=$hoy['year'];
     if ($stock>=$cantidad){
-$query = "INSERT INTO `ventas_realizadas`(`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$id_producto','$id_empleado', '$cantidad', '$y-$m-$d')";
+$query = "INSERT INTO `ventas_realizadas`(`nombre`,`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$nombre','$id_producto','$id_empleado', '$cantidad', '$y-$m-$d')";
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());echo "<fieldset>";
 $query2= "UPDATE `producto` SET `stock`=$stock-$cantidad WHERE id_producto=$id_producto";
 $result2=  mysql_query($query2)or die('Consulta fallida: ' . mysql_error());
