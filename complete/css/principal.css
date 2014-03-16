@@ -341,7 +341,7 @@ margin: 0px 0px 0px 620px;
 
 
 #menu {
-  width: 120px; /*ancho de la capa menu*/
+  width: 95px; /*ancho de la capa menu*/
 }
 
 #menu span, #menu a { /*span permite agrupar varios elementos en línea seguidos dentro de un mismo bloque*/
@@ -366,7 +366,7 @@ margin: 0px 0px 0px 620px;
     color: #666666;
     line-height: 160%;
     padding: 11px 28px 11px 28px;
-    width: 2px; 
+    width: 0px; 
 }
 #menu ul ul li {
     background: #f6f6f6; 
