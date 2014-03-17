@@ -10,7 +10,7 @@ body {
 	background-position: left top;
 	font-size: 14px;
 }
-
+    
 /* ~~ Selectores de elemento/etiqueta ~~ */
 ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
 	padding: 0;
