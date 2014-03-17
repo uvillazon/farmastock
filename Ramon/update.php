@@ -8,11 +8,7 @@
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
@@ -62,13 +58,13 @@ $ssql .= "where id_producto = " . $_POST["id_producto"];
 
 //ejecuto la sentencia de update me devuelve un si o un no ejecutada la sentencia
 if (mysql_query ($ssql) ){
-	echo "Producto actualizado con éxito";
+	echo "Producto actualizado con ï¿½xito";
 }else{
 	echo "Hubo un error al actualizar el producto";
 }
 
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 
  ?>

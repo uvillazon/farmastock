@@ -1,14 +1,10 @@
 <?php require_once('Connections/bd_farmastock.php'); ?>
-
-
 <?php 
  if (isset($_GET['destruir'])) {
 	session_start();
-	session_destroy();
-	 
+	session_destroy();	 
  }
 ?>
-
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 

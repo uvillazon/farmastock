@@ -6,11 +6,9 @@
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
+
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
@@ -60,10 +58,10 @@ $query = "INSERT INTO `producto`(`nombre`, `stock`, `precio_unid`) VALUES ('$nom
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
-echo "Producto a�adido";
+echo "Producto a&ntilde;adido";
 echo "<br>";
 echo "<br>";
-echo "<a href=\"almacen.php\">Volver Almac�n</a>";
+echo "<a href=\"almacen.php\">Volver Almac&eacute;n</a>";
 echo "</fieldset>";
           } else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php >";
