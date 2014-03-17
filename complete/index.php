@@ -71,7 +71,6 @@ if (isset($_POST['campo_usuario'])) {
      $loginStrGroup = "";
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
-    //declare two session variables and assign them
     $_SESSION['login_usuario'] = $loginUsername;
     $_SESSION['id_empleado'] = $idUsuario;
     $_SESSION['MM_UserGroup'] = $loginStrGroup;	      
