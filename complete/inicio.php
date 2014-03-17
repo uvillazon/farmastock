@@ -59,7 +59,13 @@
     <p>- Los datos de los proveedores que nos suministran los productos.</p>
     <p>-Agregar, modificar o borrar algun proveedor de nuestra base de datos.</p>
     <p>&nbsp;</p>
-    <p>- Las ventas obtenidas diarias, semanales y mensuales.</p>
+    <p>-Podemos realizar venta a mostrador</p>
+    <p>&nbsp;</p>
+    <p><u> De las ventas realizadas podemos obtener:</u></p>
+    <p> - El Id del producto vendido </p>
+    <p> - El Id del empleado que ha realizado la venta </p>
+    <p> - La cantidad vendida </p>
+    <p> - La fecha en la que se ha realizado la venta </p>
   </h3>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
