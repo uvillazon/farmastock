@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -17,21 +20,18 @@
 </head>
 
 <body>
-
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
-  
-     <div class="header">
+  <div class="header">
   <?php include("includes/cabecera.php"); ?>
-    <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+     
+     
+     
+       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            <?php include("includes/logo_logout.php"); ?>
        <!-- InstanceEndEditable --></div>
-       
-     
   </div>
-     
-  
   
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
@@ -42,11 +42,17 @@
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
  <div class="tabla_productos">
-   <p>Productos que se encuentran en el almacen:</p>
+   
+     <p class="tit_stoc_alma"> STOCK DE ALMACEN: </p>
+
+   
+   
+   
    <p>&nbsp;</p>
    <p>&nbsp;</p>
-  
-<?php
+ <div class="boton_agregar_producto"> <a href="anadir_producto.php"> <img src="images/icono_anadir_contacto.png" width=36 height=36 alt="modificar" title="Agregar Producto" /> </a> </div> 
+<?php //<td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar Producto\" /> </a> </td> 
+
 // Conectando, seleccionando la base de datos
 $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
@@ -60,8 +66,8 @@ $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 // Imprimir los resultados en HTML
 
 
-echo "<table border=1 >\n";
-echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td> <a href=\"anadir_producto.php\"> <img src=\"images/icono_anadir_contacto.png\" width=16 height=16 alt=\"modificar\" title=\"Agregar\" /> </a> </td></tr>";
+echo "<table border=1 class=\"tabla\" >\n";
+echo "<tr><td>Id Productos</td><td> Productos</td><td>Cantidad</td><td>Precio Unidad</td>      </tr>";
 
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    
@@ -89,14 +95,14 @@ echo "</table>\n";
 // Liberar resultados
 mysql_free_result($result);
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 ?>
 
 <!-- SCRIPT DE CONFIRMACION ELIMINACION DE PRODUCTOS,(va asociado al onclick del href borrar_producto de arriba(onclick=\"return confirmar() )  ) -->
 <script language="JavaScript"> 
 function confirmar(url){ 
-if (!confirm("¿Está seguro de que desea eliminar el Producto ?")) { 
+if (!confirm("ï¿½Estï¿½ seguro de que desea eliminar el Producto ?")) { 
 return false; 
 } 
 else { 

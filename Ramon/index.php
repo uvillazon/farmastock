@@ -44,17 +44,12 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 <?php
 // *** Validate request to login to this site.
 if (!isset($_SESSION)) {
-  session_start();
-  
-  
-  
+  session_start(); 
 }
- 
    $loginFormAction = $_SERVER['PHP_SELF'];
 if (isset($_GET['accesscheck'])) {
   $_SESSION['PrevUrl'] = $_GET['accesscheck'];
 }
-
 if (isset($_POST['campo_usuario'])) {
   $loginUsername=$_POST['campo_usuario'];
   $password=$_POST['textfield2'];
@@ -64,17 +59,20 @@ if (isset($_POST['campo_usuario'])) {
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_bd_farmastock, $bd_farmastock);
   
-  $LoginRS__query=sprintf("SELECT nombre_login, contrasena FROM empleado WHERE nombre_login=%s AND contrasena=password (%s)",
+  $LoginRS__query=sprintf("SELECT id_empleado, nombre_login, contrasena FROM empleado WHERE nombre_login=%s AND contrasena=password (%s)",
     GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $bd_farmastock) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
+  $row=mysql_fetch_array($LoginRS);
+  $idUsuario=$row['id_empleado'];
+  var_dump($login);
   if ($loginFoundUser) {
      $loginStrGroup = "";
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
-    //declare two session variables and assign them
     $_SESSION['login_usuario'] = $loginUsername;
+    $_SESSION['id_empleado'] = $idUsuario;
     $_SESSION['MM_UserGroup'] = $loginStrGroup;	      
 
     if (isset($_SESSION['PrevUrl']) && false) {
@@ -96,7 +94,7 @@ if (isset($_POST['campo_usuario'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacuten web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <style type="text/css">
@@ -127,27 +125,24 @@ inicio_sesion {
 </head>
 
 <body>
-
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
-  
-     <div class="header">
+  <div class="header">
   <?php include("includes/cabecera.php"); ?>
-    <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+     
+     </div>
+     
+       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            
        <!-- InstanceEndEditable --></div>
-       
-     
-  </div>
-     
   
   
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
    
     
-    <p>Inicio de Sessión</p>
+    <p>Inicio de Sesi&oacuten</p>
   <img src="images/login.jpg" width="121" height="161" alt="login" /> <!-- InstanceEndEditable --></div>
   
   
@@ -166,7 +161,7 @@ inicio_sesion {
           </p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
-          <p>Contraseña: </p>
+          <p>Contrase&ntildea: </p>
           <p>
             <label for="textfield8"></label>
             <input type="password" name="textfield2" id="textfield8" />

@@ -1,4 +1,4 @@
-<?php include("includes/sesiones.php"); ?>
+
 
 
 
@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -21,21 +21,18 @@
 </head>
 
 <body>
-
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
-  
-     <div class="header">
+  <div class="header">
   <?php include("includes/cabecera.php"); ?>
-    <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+     
+     
+     
+       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            <?php include("includes/logo_logout.php"); ?>
        <!-- InstanceEndEditable --></div>
-       
-     
   </div>
-     
-  
   
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
@@ -65,14 +62,16 @@ $producto_editar = mysql_query($ssql);
 $line = mysql_fetch_object($producto_editar);
 
 
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 
 //creo un  formulario con los datos de ese producto.
 
  ?>
- 
- <form action="update.php" method="post">
+
+ <form action="update_producto.php" method="post">
+     <fieldset>
+ <legend>Modificar producto</legend>
  	<input type="hidden" name="id_producto" value="<?php echo $id_producto;?>"> <!-- Sirve para pasarle a la siguiente pagina cual es el registro concreto que quiero modificar, o sea se le pasa a la siguiente pagina el id_producto que quiero editar.HIDDEN es un campo oculto para que el usuario no lo vea, sea a nivel interno. name es cualquier nombre.  -->
  	Producto:
     <br />
@@ -83,8 +82,13 @@ mysql_close($link);
     <br />
     <input type="text" name="cantidad" value="<?php echo $line->stock;?>" />
      <br />
+      Precio Unidad:
+	  <br />
+	  <input type="text" name="precio_unid" value="<?php echo $line->precio_unid;?>" />
+     <br />
       <br />
       <input type="submit" value="Modificar" />
+     </fieldset>
      </form>
      
      <br />
@@ -103,3 +107,26 @@ mysql_close($link);
   <!-- end .container --></div>
 </body>
 <!-- InstanceEnd --></html>
+<style type="text/css"> 
+    fieldset{
+        
+    margin-top: 35px;
+    }
+    form{
+        margin-top: -50px; 
+    }
+ div {
+    margin: .4em 0; //margen para que no esten pegados.
+}
+div label {
+  width: 10%; 
+  float: left;
+}
+    input:focus { //estilos al hacer focus
+  border: 2px solid #000;
+background: #BDBDBD;
+    }
+    enviar{
+      background-color:#A9F5A9;
+
+    }
