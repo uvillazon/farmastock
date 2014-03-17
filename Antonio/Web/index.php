@@ -66,7 +66,7 @@ if (isset($_POST['campo_usuario'])) {
   $loginFoundUser = mysql_num_rows($LoginRS);
   $row=mysql_fetch_array($LoginRS);
   $idUsuario=$row['id_empleado'];
-  var_dump($login);
+
   if ($loginFoundUser) {
      $loginStrGroup = "";
     

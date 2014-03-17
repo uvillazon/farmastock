@@ -1,4 +1,4 @@
-<?php include("includes/sesiones.php"); ?>
+
 
 
 
@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicación web stock farmacia</title>
+<title>Farmastock | Aplicaciï¿½n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -22,22 +22,19 @@
 </head>
 
 <body>
-
 <?php include("includes/afterbody.php"); ?>
 
 <div class="container">
-  
-     <div class="header">
+  <div class="header">
   <?php include("includes/cabecera.php"); ?>
-    <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+     
+     
+     
+       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            <?php include("includes/logo_logout.php"); ?>
        <!-- InstanceEndEditable --></div>
-       
-     
+  
   </div>
-     
-  
-  
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
       <?php include("includes/menuizquierda.php"); ?>
@@ -46,9 +43,34 @@
   
   <div class="content">
   <!-- InstanceBeginEditable name="Contenido" -->
-  <p>esto es borrar proveedor</p>
-<p>&nbsp;</p>
-  <p>&nbsp;</p>
+  <?php 
+
+
+
+// Conectando, seleccionando la base de datos
+$link = mysql_connect('127.0.0.1', 'root', '')
+    or die('No se pudo conectar: ' . mysql_error());
+echo '';
+mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
+
+  
+// Actualizamos en funcion del id que recibimos 
+
+if (isset ($_GET ['id_proveedor']) ) 
+	{
+		$valor = $_GET ['id_proveedor'];
+		$query = "delete from proveedor where id_proveedor = $valor";  
+		//echo $valor;
+		//echo $query;
+		$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+	 }
+ 
+
+
+echo " <p>El proveedor $valor ha sido eliminado con exito.</p> "; 
+echo "<br>";
+echo "<p><a href='proveedor.php'>VOLVER A PRODUCTOS</a></p> ";
+?>
   <!-- InstanceEndEditable -->
   </div>
   <div class="footer">
