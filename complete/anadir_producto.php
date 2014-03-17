@@ -115,11 +115,11 @@ background: #BDBDBD;
 </style>
 <p>&nbsp;</p>
   <p>&nbsp;</p>
-  <!-- InstanceEndEditable -->
+  
   </div>
   <div class="footer">
     <?php include("includes/pie.php");?>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
+  </div>
+ </div>
 </body>
-<!-- InstanceEnd --></html>
+</html>

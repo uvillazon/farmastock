@@ -63,9 +63,11 @@ $m=$hoy['mon'];//Seleccionamos del array $hoy el mes actual.
 $y=$hoy['year'];//Seleccionamos del array $hoy el año actual.
     if ($stock>=$cantidad){//si hay mas stock que cantidad
 $query = "INSERT INTO `ventas_realizadas`(`nombre`,`id_producto`, `id_empleado`, `cantidad`, `fecha`) VALUES ('$nombre','$id_producto','$id_empleado', '$cantidad', '$y-$m-$d')";
-$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());echo "<fieldset>";
+$result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
+
 $query2= "UPDATE `producto` SET `stock`=$stock-$cantidad WHERE id_producto=$id_producto";
 $result2=  mysql_query($query2)or die('Consulta fallida: ' . mysql_error());
+echo "<fieldset>";
 echo "Producto vendido";
 echo "<br>";
 echo "<br>";
@@ -90,7 +92,7 @@ mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos')
 echo "<fieldset>";
   echo "<legend>Realizar una venta</legend>";
   echo "<form action=venta_publico.php method='POST'>";
-echo "PRODUCTO: ";
+echo "Producto: ";
 echo "<select name='select1'>" ; //nombre de del box "producto"
 $precios=array();//creamos un array llamado precios donde almacenaremos id_producto y precio_unidad
 while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fila de resultados .
@@ -102,7 +104,7 @@ while($fila=mysql_fetch_array($resultado_consulta_mysql))     //recupera una fil
 echo "</select>";
 echo "<br /><br />";
 echo "<br />";
-echo "CANTIDAD:";
+echo "Cantidad:";
 //aqui introducimos la cantidad que luego la almacenamos en su variable
 echo "<input type='text' name='cantidad'/>";
 echo "<br />";
@@ -114,15 +116,7 @@ echo "</fieldset>";
 }
 ?>
   
-  <!-- InstanceEndEditable -->
-  </div>
-  <div class="footer">
-    <?php include("includes/pie.php");?>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
-</body>
-<!-- InstanceEnd --></html>
-<style type="text/css"> 
+ <style type="text/css"> 
     fieldset{
         
     margin-top: -33px;
@@ -145,3 +139,13 @@ background: #BDBDBD;
       background-color:#A9F5A9;
 
     }
+    </style>
+  </div>
+  <div class="footer">
+    <?php include("includes/pie.php");?>
+   </div>
+</div>
+</body>
+</html>
+
+    
