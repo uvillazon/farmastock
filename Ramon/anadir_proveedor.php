@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
@@ -63,7 +63,7 @@ $query = "INSERT INTO `proveedor`(`nombre`, `direccion`, `telefono`, `email` ) V
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
 
 echo "<fieldset>";
-echo "Producto a�adido";
+echo "Proveedor a&ntilde;adido";
 echo "<br>";
 echo "<br>";
 echo "<a href=\"proveedor.php\">Volver a Proveedor</a>";

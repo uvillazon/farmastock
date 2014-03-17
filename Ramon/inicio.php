@@ -12,10 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
@@ -50,7 +47,7 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <p>Farmastock es una aplicaci�n dedicada al sector de la farmacia para facilitar la labor diaria al farmaceutico, su funci�n principal es la de controlar el stock del almac�n dando as� un control exhaustivo de los productos.</p>
+    <p>Farmastock es una aplicaci&oacute;n dedicada al sector de la farmacia para facilitar la labor diaria al farmaceutico, su funci&oacute;n principal es la de controlar el stock del almac�n dando as� un control exhaustivo de los productos.</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>- Podemos ver el stock del almacen actualizado.</p>

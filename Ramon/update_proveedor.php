@@ -8,11 +8,7 @@
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Farmastock | Aplicaci�n web stock farmacia</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+<title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
@@ -62,7 +58,7 @@ $ssql .= "where id_proveedor = " . $_POST["id_proveedor"];
 
 //ejecuto la sentencia de update me devuelve un si o un no ejecutada la sentencia
 if (mysql_query ($ssql) ){
-	echo "Proveedor actualizado con �xito";
+	echo "Proveedor actualizado con &eacute;xito";
 }else{
 	echo "Hubo un error al actualizar el proveedor";
 }
@@ -72,6 +68,7 @@ if (mysql_query ($ssql) ){
 mysql_close($link);
 
  ?>
+  
  <br /><br /><br /><br /><br /><br />
  <a href="proveedor.php">Volver a seleccionar otro producto </a>
 
