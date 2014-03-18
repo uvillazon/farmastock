@@ -1,1 +1,0 @@
-<div class="logo_farmastock"><img src="images/logo.png" width="303" height="65" alt="farmastock_logo"></div>
