@@ -21,48 +21,47 @@
 <div class="container">
   <div class="header">
   <?php include("includes/cabecera.php"); ?>
-     
-     
-     
+    
        <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
            <?php include("includes/logo_logout.php"); ?>
-       <!-- InstanceEndEditable --></div>
+        </div>
   </div>
-  
-  
-  <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
+
+  <div class="menuizqu">¡
       <?php include("includes/menuizquierda.php"); ?>
-  <!-- InstanceEndEditable --></div>
+  ¡</div>
   
   
   <div class="content">
-  <!-- InstanceBeginEditable name="Contenido" -->
+  
   <br><br>
          
           <?php 
           require_once('Connections/bd_farmastock.php');
+          //si no esta vacio el formulario
           if (!empty($_POST)){
+              //elegimos de post 'nombre', 'stock', 'precio unidad'
               $nombre=$_POST['nombre'];
               $stock=$_POST['stock'];
 			  $precio_unid=$_POST['precio_unid'];
+                //Nos conectamos a la BD
               $link = mysql_connect('127.0.0.1', 'root', '')
     or die('No se pudo conectar: ' . mysql_error());
 echo '';
+//Seleccionamos la BD
 mysql_select_db('farma_stock') or die('No se pudo seleccionar la base de datos');
-//var_dump($nombre);
-//var_dump($stock);
-//var_dump($precio);
 
 // Realizar una consulta MySQL
 $query = "INSERT INTO `producto`(`nombre`, `stock`, `precio_unid`) VALUES ('$nombre','$stock', '$precio_unid')";
+//Almacenamos en $result el resultado de realizar la consulta ($query)
 $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
-
 echo "<fieldset>";
 echo "Producto a&ntilde;adido";
 echo "<br>";
 echo "<br>";
 echo "<a href=\"almacen.php\">Volver Almac&eacute;n</a>";
 echo "</fieldset>";
+//si no esta vacio mostramos el formulario
           } else{
               echo "<form id=form name=form1 method=post action=anadir_producto.php >";
   echo "<fieldset>";
