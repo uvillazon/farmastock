@@ -2,17 +2,15 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- InstanceBeginEditable name="doctitle" -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
 <title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
-<!-- InstanceEndEditable -->
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
 
@@ -76,10 +74,8 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) { /*MySQL_ASSOC, es para
     echo "\t<tr>\n"; /*tr fila dentro de una tabla*/
 	$id= $line["id_producto"];
 	//Bucle 
-    foreach ($line as $col_value) {/*se recorre el array dado por $line y en cada iteración, el valor del elemento actual se asigna a                                    $col_value y el puntero interno del array avanza una posición  */
-       
-	    echo "\t\t<td>$col_value</td> \n"; /*td celda*/
-		
+    foreach ($line as $col_value) {/*se recorre el array dado por $line y en cada iteraciï¿½n, el valor del elemento actual se asigna a                                    $col_value y el puntero interno del array avanza una posiciï¿½n  */      
+	    echo "\t\t<td>$col_value</td> \n"; /*td celda*/		
     }
     //se hace una peticion get a modificar_producto donde se manda el id_producto y se guarda en la variable $id.
 	echo "<td> <a href=\"modificar_producto.php?id_producto=$id\"> 
@@ -90,26 +86,19 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) { /*MySQL_ASSOC, es para
 		  <img src=\"images/ico-borrar.gif\" width=12 height=12 alt=\"borrar\" title=\"Borrar\" />
 		   </a>  </td>";
 	echo "";
-	
-	echo "\t</tr>\n";
-	 
-	
+	echo "\t</tr>\n";		
 }
-
 echo "</table>\n";
-
-
 // Liberar resultados
 mysql_free_result($result);
-
-// Cerrar la conexión
+// Cerrar la conexiï¿½n
 mysql_close($link);
 ?>
 
 <!-- SCRIPT DE CONFIRMACION ELIMINACION DE PRODUCTOS,(va asociado al onclick del href borrar_producto de arriba(onclick=\"return confirmar() )  ) -->
 <script language="JavaScript"> 
 function confirmar(url){ 
-if (!confirm("¿Estás seguro de que desea eliminar el Producto ?")) { 
+if (!confirm("Â¿ Estas seguro de que desea eliminar el Producto ?")) { 
 return false; 
 } 
 else { 

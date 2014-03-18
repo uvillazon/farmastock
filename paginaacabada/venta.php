@@ -46,11 +46,11 @@
   </center> 
   <br /><br /><br />
  <center> <a href="ventas_realizadas.php">Ventas realizadas </a></center>
-  <!-- InstanceEndEditable -->
+  
   </div>
   <div class="footer">
     <?php include("includes/pie.php");?>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
+    </div>
+  </div>
 </body>
 <!-- InstanceEnd --></html>

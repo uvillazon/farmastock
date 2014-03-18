@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
 <link href='http://fonts.googleapis.com/css?family=Exo+2:400,300' rel='stylesheet' type='text/css'>
@@ -8,10 +8,7 @@
 <title>Farmastock | Aplicaci&oacute;n web stock farmacia</title>
 <link href="css/principal.css" rel="stylesheet" type="text/css" />
 <?php include("includes/header.php"); ?> 
-
-
 </head>
-
 <body>
 
 <?php include("includes/afterbody.php"); ?>
@@ -22,19 +19,19 @@
      
      
      
-       <div class="logo_logout"><!-- InstanceBeginEditable name="logo_logout" -->
+       <div class="logo_logout">
            <?php include("includes/logo_logout.php"); ?>
-       <!-- InstanceEndEditable --></div>
+      </div>
   
   </div>
   
-  <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
+  <div class="menuizqu">
       <?php include("includes/menuizquierda.php"); ?>
-  <!-- InstanceEndEditable --></div>
+  </div>
   
   
   <div class="content">
-  <!-- InstanceBeginEditable name="Contenido" -->
+  
   <br />
 <?php 
           require_once('Connections/bd_farmastock.php');//nos conectamos a la BD

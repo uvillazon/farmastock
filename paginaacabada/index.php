@@ -38,32 +38,33 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 ?>
 <?php
-// *** Validate request to login to this site.
-if (!isset($_SESSION)) {
-  session_start(); 
+// Verificamos si la variable existe, SI no existe ejecutamos el codigo.*/
+if (!isset($_SESSION)) { /*Si la variable $_SESSION no est� definida, ISSET se utiliza cuando queremos comprobar si estamos entrando 	                         por primera vez a una pagina con un formulario o estamos entrando porque se presion� el bot�n de SUBMIT y hay                         que verificar si los campos han sido rellenados correctamente. */
+  session_start();       /*abrimos la sessi�n*/
 }
-   $loginFormAction = $_SERVER['PHP_SELF'];
+   $loginFormAction = $_SERVER['PHP_SELF']; /*$ _SERVER Es una variable global que contiene informaci�n acerca de los encabezados,                                             rutas y ubicaciones de scripts.*/
 if (isset($_GET['accesscheck'])) {
   $_SESSION['PrevUrl'] = $_GET['accesscheck'];
 }
-if (isset($_POST['campo_usuario'])) {
+if (isset($_POST['campo_usuario'])) { /*Si la variable $_POST est� definida con campo_usuario que es el usuario haz...*/
   $loginUsername=$_POST['campo_usuario'];
   $password=$_POST['textfield2'];
   $MM_fldUserAuthorization = "";
-  $MM_redirectLoginSuccess = "inicio.php";
-  $MM_redirectLoginFailed = "fallo_login.php";
+  $MM_redirectLoginSuccess = "inicio.php"; /*Si el login es correcto pasa a la pagina inicio.php*/
+  $MM_redirectLoginFailed = "fallo_login.php"; /*Si el login no es correcto para a la pagina fallo_login.php*/
   $MM_redirecttoReferrer = false;
-  mysql_select_db($database_bd_farmastock, $bd_farmastock);
+  mysql_select_db($database_bd_farmastock, $bd_farmastock); /*Selecciona la bd farmastock*/
   
+  /*Selecciona de la bd el id_empleado, nombre_login y contrase�a de la tabla empleado cuando el nombre_login sea igual a (%s) una cadena de texto pasada pasada como argumento en la funcion sprintf*/
   $LoginRS__query=sprintf("SELECT id_empleado, nombre_login, contrasena FROM empleado WHERE nombre_login=%s AND contrasena=password (%s)",
     GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
-  $LoginRS = mysql_query($LoginRS__query, $bd_farmastock) or die(mysql_error());
-  $loginFoundUser = mysql_num_rows($LoginRS);
-  $row=mysql_fetch_array($LoginRS);
+  $LoginRS = mysql_query($LoginRS__query, $bd_farmastock) or die(mysql_error());/* mysql_query envia  a la bd la consulta que contiene                                                                                la variable $LoginRS__query*/
+  $loginFoundUser = mysql_num_rows($LoginRS); /*mysql_num_rows recupera el numero de filas que ha obtenido de la consulta*/
+  $row=mysql_fetch_array($LoginRS); /*mysql_fetch_array recupera una fila de resultados como un array asociativo*/
   $idUsuario=$row['id_empleado'];
   var_dump($login);
-  if ($loginFoundUser) {
+  if ($loginFoundUser) { /*si existe el numero de fila realizado en la consulta haz...*/
      $loginStrGroup = "";
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
