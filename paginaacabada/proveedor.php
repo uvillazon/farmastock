@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/principal.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
@@ -16,7 +11,7 @@
 
 
 </head>
-    
+
 <body>
 
 <?php include("includes/afterbody.php"); ?>
@@ -35,7 +30,7 @@
   
   <div class="menuizqu"><!-- InstanceBeginEditable name="menu" -->
       <?php include("includes/menuizquierda.php"); ?>
-  <!-- InstanceEndEditable --></div>
+  </div>
   
   
   <div class="content">
