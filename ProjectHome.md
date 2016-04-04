@@ -1,0 +1,1 @@
+Aplicacion web de gestiones stock farmacia
